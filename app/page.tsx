@@ -44,15 +44,20 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight mb-4">Global Technology Solutions</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              From advanced AI agents to next-gen marketing, we provide comprehensive digital solutions for businesses worldwide.
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Officially automating all business operations with AI. We build the workforce of the future.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">🤖</div>
-              <h3 className="text-xl font-bold mb-2">AI Agents & Automation</h3>
-              <p className="text-muted-foreground">Deploy autonomous workforce agents for customer support, internal ops, and 24/7 workflow automation.</p>
+              <h3 className="text-xl font-bold mb-2">Customer Agent for Business</h3>
+              <p className="text-muted-foreground">Replace traditional support with intelligent AI Agents that handle inquiries, bookings, and sales 24/7.</p>
+            </div>
+            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">⚙️</div>
+              <h3 className="text-xl font-bold mb-2">Business Automation</h3>
+              <p className="text-muted-foreground">End-to-end automation of workflows. From data entry to decision making, we make your business run on autopilot.</p>
             </div>
             <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">📈</div>
@@ -73,11 +78,6 @@ export default function Home() {
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">🛡️</div>
               <h3 className="text-xl font-bold mb-2">Cybersecurity</h3>
               <p className="text-muted-foreground">Enterprise-grade security audits and protection systems to safeguard your digital assets.</p>
-            </div>
-            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">⚡</div>
-              <h3 className="text-xl font-bold mb-2">Business Consulting</h3>
-              <p className="text-muted-foreground">Strategic technology consulting to help your business navigate digital transformation.</p>
             </div>
           </div>
         </div>
