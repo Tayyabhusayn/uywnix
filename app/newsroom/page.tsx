@@ -2,8 +2,9 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Newsroom - UYWNIX Tech Insights",
-  description: "Latest updates on AI, Technology, and Business Automation from UYWNIX.",
+  title: "Newsroom - UYWNIX AI & Tech Insights | #1 Tech Blog",
+  description: "Latest news on AI Agents, Business Automation, and Global Tech trends from UYWNIX. Stay ahead of the curve.",
+  keywords: "AI News, Tech Blog, Business Automation Insights, UYWNIX Newsroom",
 };
 
 const articles = [

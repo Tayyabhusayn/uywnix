@@ -39,28 +39,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI First Section */}
-      <section className="w-full py-24 bg-secondary/30">
+      {/* AI First Section - Services */}
+      <section className="w-full py-24 bg-secondary/30" id="services">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">AI First Engineering</h2>
-            <p className="text-muted-foreground">Automating the future of business and connection.</p>
+            <h2 className="text-3xl font-bold tracking-tight mb-4">Global Technology Solutions</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              From advanced AI agents to next-gen marketing, we provide comprehensive digital solutions for businesses worldwide.
+            </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all">
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl">🤖</div>
-              <h3 className="text-xl font-bold mb-2">Business Automation</h3>
-              <p className="text-muted-foreground">Deploy intelligent agents to handle customer support, lead gen, and internal workflows autonomously.</p>
+            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">🤖</div>
+              <h3 className="text-xl font-bold mb-2">AI Agents & Automation</h3>
+              <p className="text-muted-foreground">Deploy autonomous workforce agents for customer support, internal ops, and 24/7 workflow automation.</p>
             </div>
-            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all">
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl">🔗</div>
-              <h3 className="text-xl font-bold mb-2">Decentralized Social</h3>
-              <p className="text-muted-foreground">UYWNI App gives power back to users with blockchain-verified identity and content ownership.</p>
+            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">📈</div>
+              <h3 className="text-xl font-bold mb-2">AI Marketing</h3>
+              <p className="text-muted-foreground">Data-driven marketing strategies powered by predictive AI to maximize ROI and global reach.</p>
             </div>
-            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all">
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl">⚡</div>
-              <h3 className="text-xl font-bold mb-2">Global Tech Solutions</h3>
-              <p className="text-muted-foreground">Expert software development services for India, UAE, EU, USA, and Australia.</p>
+            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">🔗</div>
+              <h3 className="text-xl font-bold mb-2">Blockchain & Web3</h3>
+              <p className="text-muted-foreground">Building the decentralized future with secure, transparent, and scalable blockchain infrastructure.</p>
+            </div>
+            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">📱</div>
+              <h3 className="text-xl font-bold mb-2">App Development</h3>
+              <p className="text-muted-foreground">High-performance mobile and web applications tailored for scalability and user experience.</p>
+            </div>
+            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">🛡️</div>
+              <h3 className="text-xl font-bold mb-2">Cybersecurity</h3>
+              <p className="text-muted-foreground">Enterprise-grade security audits and protection systems to safeguard your digital assets.</p>
+            </div>
+            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">⚡</div>
+              <h3 className="text-xl font-bold mb-2">Business Consulting</h3>
+              <p className="text-muted-foreground">Strategic technology consulting to help your business navigate digital transformation.</p>
             </div>
           </div>
         </div>
