@@ -25,9 +25,6 @@ export default function Home() {
             <Link href="/newsroom" className="hover:text-primary/80 transition-colors">Newsroom</Link>
             <Link href="/contact" className="hover:text-primary/80 transition-colors">Contact</Link>
           </div>
-          <Link href="/products/uywni" className="hidden md:block bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity">
-            Launch App
-          </Link>
 
           {/* Mobile Menu Button */}
           <button 
@@ -52,9 +49,6 @@ export default function Home() {
               <Link href="/ai-agent" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>AI Agent</Link>
               <Link href="/newsroom" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Newsroom</Link>
               <Link href="/contact" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Contact</Link>
-              <Link href="/products/uywni" className="bg-primary text-primary-foreground py-3 rounded-xl font-bold" onClick={() => setIsMenuOpen(false)}>
-                Launch App
-              </Link>
             </div>
           </div>
         )}
