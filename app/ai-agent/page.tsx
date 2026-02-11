@@ -18,16 +18,32 @@ export default function AiAgentPage() {
     setInput("");
     setIsTyping(true);
 
-    // Simulated AI Delay
+    // Advanced Sales Logic
     setTimeout(() => {
-      let response = "I can help with that. Our system integrates with your existing stack to automate that process.";
-      
-      if (userMsg.toLowerCase().includes("support")) {
-        response = "Our Customer Agent can handle 80% of support tickets automatically. It connects to Email, WhatsApp, and Slack.";
-      } else if (userMsg.toLowerCase().includes("lead") || userMsg.toLowerCase().includes("sales")) {
-        response = "I can capture leads from your website, qualify them using criteria you set, and book meetings directly on your calendar.";
-      } else if (userMsg.toLowerCase().includes("price") || userMsg.toLowerCase().includes("cost")) {
-        response = "We offer flexible pricing based on usage. Would you like to schedule a demo with our sales team?";
+      let response = "I can help with that. Could you tell me a bit more about your business?";
+      const lowerMsg = userMsg.toLowerCase();
+
+      // 1. Identification & Need Analysis
+      if (lowerMsg.includes("support") || lowerMsg.includes("service")) {
+        response = "Great. Our Support Agents can resolve 80% of inquiries instantly. How many support tickets do you get per week roughly?";
+      } else if (lowerMsg.includes("sale") || lowerMsg.includes("lead")) {
+        response = "Understood. Our Sales Agents are designed to capture and qualify leads 24/7. What is your average deal size?";
+      } 
+      // 2. Qualification
+      else if (/\d/.test(lowerMsg) && (lowerMsg.includes("ticket") || lowerMsg.includes("week"))) {
+        response = "Got it. At that volume, automation could save you ~20 hours/week. Do you currently use a CRM like HubSpot or Salesforce?";
+      }
+      // 3. Pricing / Objections
+      else if (lowerMsg.includes("price") || lowerMsg.includes("cost") || lowerMsg.includes("expensive")) {
+        response = "We offer custom packages starting from $500/month, which is 90% cheaper than hiring a human agent. Would you like to see a breakdown?";
+      }
+      // 4. Closing / Booking
+      else if (lowerMsg.includes("yes") || lowerMsg.includes("book") || lowerMsg.includes("demo")) {
+        response = "Excellent. You can book a priority demo with our founder here: https://calendly.com/uywnix/demo (This link will open your calendar).";
+      }
+      // 5. Contact Info
+      else if (lowerMsg.includes("@") || lowerMsg.includes(".com")) {
+        response = "Thanks! I've logged your email. A senior automation expert will reach out within 2 hours.";
       }
 
       setMessages((prev) => [...prev, { role: "agent", content: response }]);
