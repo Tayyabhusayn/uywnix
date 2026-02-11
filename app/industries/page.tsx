@@ -36,12 +36,6 @@ const industries = [
     title: "Legal",
     problem: "Hours spent on client intake and contract review.",
     solution: "AI automates client onboarding forms and summarizes lengthy legal documents in seconds."
-  },
-  {
-    icon: "🎓",
-    title: "Education",
-    problem: "High volume of student inquiries during enrollment.",
-    solution: "24/7 admission assistants that guide students through application processes."
   }
 ];
 
