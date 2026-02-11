@@ -54,8 +54,8 @@ export default function AuditPage() {
           <div className="bg-card border border-border rounded-2xl p-8 shadow-2xl">
             <div className="mb-8">
               <span className="text-xs font-bold text-primary tracking-widest uppercase mb-2 block">Free Business Audit</span>
-              <h1 className="text-3xl font-bold mb-4">Can Your Business Be Automated?</h1>
-              <p className="text-muted-foreground">Answer 3 questions to find out how much time & money an AI Agent can save you.</p>
+              <h1 className="text-3xl font-bold mb-4">Did you know you could automate your entire business?</h1>
+              <p className="text-muted-foreground">We built this free tool to calculate exactly how much time and money you'd save. Let's find your score.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
