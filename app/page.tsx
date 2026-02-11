@@ -68,9 +68,14 @@ export default function Home() {
               <p className="text-muted-foreground">End-to-end automation of workflows. From data entry to decision making, we make your business run on autopilot.</p>
             </div>
             <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">📈</div>
-              <h3 className="text-xl font-bold mb-2">AI Marketing</h3>
-              <p className="text-muted-foreground">Data-driven marketing strategies powered by predictive AI to maximize ROI and global reach.</p>
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">📞</div>
+              <h3 className="text-xl font-bold mb-2">AI Voice Calling Agents</h3>
+              <p className="text-muted-foreground">Autonomous voice AI that handles inbound support calls and makes outbound sales calls with human-like realism.</p>
+            </div>
+            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">📧</div>
+              <h3 className="text-xl font-bold mb-2">Email Automation</h3>
+              <p className="text-muted-foreground">Cold outreach at scale. Our AI finds leads, writes personalized emails, and follows up until they reply.</p>
             </div>
             <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">🔗</div>

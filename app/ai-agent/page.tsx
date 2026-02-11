@@ -28,7 +28,9 @@ export default function AiAgentPage() {
         response = "Great. Our Support Agents can resolve 80% of inquiries instantly. How many support tickets do you get per week roughly?";
       } else if (lowerMsg.includes("sale") || lowerMsg.includes("lead")) {
         response = "Understood. Our Sales Agents are designed to capture and qualify leads 24/7. What is your average deal size?";
-      } 
+      } else if (lowerMsg.includes("call") || lowerMsg.includes("voice")) {
+        response = "Our Voice Agents can handle 1000s of calls simultaneously with human-like intonation. Perfect for inbound support or outbound sales.";
+      }
       // 2. Qualification
       else if (/\d/.test(lowerMsg) && (lowerMsg.includes("ticket") || lowerMsg.includes("week"))) {
         response = "Got it. At that volume, automation could save you ~20 hours/week. Do you currently use a CRM like HubSpot or Salesforce?";
@@ -149,6 +151,15 @@ export default function AiAgentPage() {
                 <h4 className="font-bold text-lg mb-1">60%</h4>
                 <p className="text-xs text-muted-foreground">Cost Reduction</p>
               </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold mb-2">Voice Capable</h3>
+              <p className="text-muted-foreground">Our agents can handle inbound phone calls with human-like voice synthesis.</p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-2">Seamless Integration</h3>
+              <p className="text-muted-foreground">Connects with your CRM, Email, and Slack.</p>
             </div>
 
             <button className="w-full bg-primary text-primary-foreground py-4 rounded-xl font-bold text-lg hover:scale-[1.02] transition-transform">
