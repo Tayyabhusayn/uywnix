@@ -12,9 +12,11 @@ export default function Home() {
           </Link>
           <div className="hidden md:flex space-x-8 text-sm font-medium">
             <Link href="/products/uywni" className="hover:text-primary/80 transition-colors">Social App</Link>
+            <Link href="/services" className="hover:text-primary/80 transition-colors">Services</Link>
+            <Link href="/industries" className="hover:text-primary/80 transition-colors">Industries</Link>
             <Link href="/ai-agent" className="hover:text-primary/80 transition-colors">AI Agent</Link>
             <Link href="/newsroom" className="hover:text-primary/80 transition-colors">Newsroom</Link>
-            <Link href="#contact" className="hover:text-primary/80 transition-colors">Contact</Link>
+            <Link href="/contact" className="hover:text-primary/80 transition-colors">Contact</Link>
           </div>
           <Link href="/products/uywni" className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity">
             Launch App
@@ -101,6 +103,7 @@ export default function Home() {
             <ul className="space-y-2 text-muted-foreground">
               <li><Link href="/products/uywni">Social App</Link></li>
               <li><Link href="/ai-agent">AI Agents</Link></li>
+              <li><Link href="/industries">Industries</Link></li>
             </ul>
           </div>
           <div>
