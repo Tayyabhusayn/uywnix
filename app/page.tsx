@@ -56,17 +56,17 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="w-full py-24 md:py-32 lg:py-40 text-center container mx-auto px-4">
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70 animate-slide-up">
           The Next Generation <br/> Business Automation
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-slide-up delay-100">
           We build AI Employees that automate your business 24/7. From Customer Support to High-Ticket Sales.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/audit" className="bg-primary text-primary-foreground h-12 px-8 rounded-full flex items-center justify-center font-medium text-lg hover:opacity-90 transition-opacity">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up delay-200">
+          <Link href="/audit" className="bg-primary text-primary-foreground h-12 px-8 rounded-full flex items-center justify-center font-medium text-lg hover:opacity-90 transition-opacity hover-glow">
             Free Business Audit
           </Link>
-          <Link href="/ai-agent" className="border border-input bg-background h-12 px-8 rounded-full flex items-center justify-center font-medium text-lg hover:bg-accent hover:text-accent-foreground transition-colors">
+          <Link href="/ai-agent" className="border border-input bg-background h-12 px-8 rounded-full flex items-center justify-center font-medium text-lg hover:bg-accent hover:text-accent-foreground transition-colors hover-glow">
             Try AI Sales Agent
           </Link>
         </div>
