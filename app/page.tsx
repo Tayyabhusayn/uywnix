@@ -113,7 +113,7 @@ export default function Home() {
           </div>
         </div>
         <div className="container mx-auto px-4 mt-8 pt-8 border-t border-border text-center text-xs text-muted-foreground">
-          © 2026 UYWNIX. All rights reserved.
+          © 2026 UYWNIX. Global Technology Solutions. Updated Feb 11.
         </div>
       </footer>
     </main>
