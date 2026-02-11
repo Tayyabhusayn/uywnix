@@ -1,5 +1,8 @@
 import { getPostData, getSortedPostsData } from "@/lib/posts";
 
+// Force static generation for Vercel
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const posts = getSortedPostsData();
   return posts.map((post) => ({
