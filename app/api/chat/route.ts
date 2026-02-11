@@ -7,7 +7,8 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 export async function POST(req: Request) {
   try {
     const { message } = await req.json();
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    // Use Gemini 1.5 Flash for speed and reliability
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const prompt = `
       You are the official AI Sales Representative for UYWNIX (a Global AI Automation Agency).
