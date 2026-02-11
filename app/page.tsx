@@ -119,11 +119,13 @@ export default function Home() {
             </ul>
           </div>
           <div>
-            <h4 className="font-bold mb-4">Legal</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>Privacy Policy</li>
-              <li>Terms of Service</li>
-            </ul>
+            <h4 className="font-bold mb-4">Social</h4>
+            <div className="flex gap-4">
+              <a href="https://www.linkedin.com/company/uywnix/" target="_blank" className="text-muted-foreground hover:text-primary transition">LinkedIn</a>
+              <a href="https://x.com/UYWNIX" target="_blank" className="text-muted-foreground hover:text-primary transition">X (Twitter)</a>
+              <a href="https://www.instagram.com/uywnix" target="_blank" className="text-muted-foreground hover:text-primary transition">Instagram</a>
+              <a href="https://bsky.app/profile/uywnix.bsky.social" target="_blank" className="text-muted-foreground hover:text-primary transition">Bluesky</a>
+            </div>
           </div>
         </div>
         <div className="container mx-auto px-4 mt-8 pt-8 border-t border-border text-center text-xs text-muted-foreground">
