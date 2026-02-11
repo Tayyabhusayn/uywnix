@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { remark } from 'remark';
+import html from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 
@@ -14,7 +16,6 @@ export interface PostData {
 }
 
 export function getSortedPostsData(): Omit<PostData, 'content'>[] {
-  // Check if directory exists
   if (!fs.existsSync(postsDirectory)) {
     return [];
   }
@@ -41,14 +42,20 @@ export function getSortedPostsData(): Omit<PostData, 'content'>[] {
   });
 }
 
-export function getPostData(id: string): PostData {
+export async function getPostData(id: string): Promise<PostData> {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const matterResult = matter(fileContents);
 
+  // Use remark to convert markdown into HTML string
+  const processedContent = await remark()
+    .use(html)
+    .process(matterResult.content);
+  const contentHtml = processedContent.toString();
+
   return {
     id,
-    content: matterResult.content,
+    content: contentHtml,
     ...(matterResult.data as { date: string; title: string; category: string; excerpt: string }),
   };
 }
