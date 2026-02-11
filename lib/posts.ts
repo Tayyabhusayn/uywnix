@@ -4,7 +4,16 @@ import matter from 'gray-matter';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 
-export function getSortedPostsData() {
+export interface PostData {
+  id: string;
+  date: string;
+  title: string;
+  category: string;
+  excerpt: string;
+  content: string;
+}
+
+export function getSortedPostsData(): Omit<PostData, 'content'>[] {
   // Check if directory exists
   if (!fs.existsSync(postsDirectory)) {
     return [];
@@ -32,7 +41,7 @@ export function getSortedPostsData() {
   });
 }
 
-export function getPostData(id: string) {
+export function getPostData(id: string): PostData {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const matterResult = matter(fileContents);
@@ -40,6 +49,6 @@ export function getPostData(id: string) {
   return {
     id,
     content: matterResult.content,
-    ...matterResult.data,
+    ...(matterResult.data as { date: string; title: string; category: string; excerpt: string }),
   };
 }
