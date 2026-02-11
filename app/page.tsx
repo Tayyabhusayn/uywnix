@@ -21,6 +21,7 @@ export default function Home() {
             <Link href="/products/uywni" className="hover:text-primary/80 transition-colors">Social App</Link>
             <Link href="/services" className="hover:text-primary/80 transition-colors">Services</Link>
             <Link href="/industries" className="hover:text-primary/80 transition-colors">Industries</Link>
+            <Link href="/pricing" className="hover:text-primary/80 transition-colors">Pricing</Link>
             <Link href="/ai-agent" className="hover:text-primary/80 transition-colors">AI Agent</Link>
             <Link href="/newsroom" className="hover:text-primary/80 transition-colors">Newsroom</Link>
             <Link href="/contact" className="hover:text-primary/80 transition-colors">Contact</Link>
@@ -46,6 +47,7 @@ export default function Home() {
               <Link href="/products/uywni" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Social App</Link>
               <Link href="/services" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Services</Link>
               <Link href="/industries" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Industries</Link>
+              <Link href="/pricing" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Pricing</Link>
               <Link href="/ai-agent" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>AI Agent</Link>
               <Link href="/newsroom" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Newsroom</Link>
               <Link href="/contact" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Contact</Link>
