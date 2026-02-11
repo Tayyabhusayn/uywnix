@@ -30,11 +30,11 @@ export default function Home() {
           UYWNIX reimagines connection. AI-first, privacy-focused, and built for the future of decentralized interaction.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/products/uywni" className="bg-primary text-primary-foreground h-12 px-8 rounded-full flex items-center justify-center font-medium text-lg hover:opacity-90 transition-opacity">
-            Explore UYWNI
+          <Link href="/audit" className="bg-primary text-primary-foreground h-12 px-8 rounded-full flex items-center justify-center font-medium text-lg hover:opacity-90 transition-opacity">
+            Free Business Audit
           </Link>
-          <Link href="/ai-agent" className="border border-input bg-background h-12 px-8 rounded-full flex items-center justify-center font-medium text-lg hover:bg-accent hover:text-accent-foreground transition-colors">
-            Business AI
+          <Link href="/products/uywni" className="border border-input bg-background h-12 px-8 rounded-full flex items-center justify-center font-medium text-lg hover:bg-accent hover:text-accent-foreground transition-colors">
+            Explore UYWNI App
           </Link>
         </div>
       </section>
