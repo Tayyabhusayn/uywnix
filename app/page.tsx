@@ -1,7 +1,12 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import RoiCalculator from "@/components/RoiCalculator";
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       {/* Navigation */}
@@ -10,6 +15,8 @@ export default function Home() {
           <Link href="/" className="text-2xl font-bold tracking-tighter">
             UYWNIX
           </Link>
+          
+          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 text-sm font-medium">
             <Link href="/products/uywni" className="hover:text-primary/80 transition-colors">Social App</Link>
             <Link href="/services" className="hover:text-primary/80 transition-colors">Services</Link>
@@ -18,10 +25,39 @@ export default function Home() {
             <Link href="/newsroom" className="hover:text-primary/80 transition-colors">Newsroom</Link>
             <Link href="/contact" className="hover:text-primary/80 transition-colors">Contact</Link>
           </div>
-          <Link href="/products/uywni" className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity">
+          <Link href="/products/uywni" className="hidden md:block bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity">
             Launch App
           </Link>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden p-2 text-primary" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 18 12"/></svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            )}
+          </button>
         </div>
+
+        {/* Mobile Dropdown */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-16 left-0 w-full bg-background border-b border-border shadow-lg animate-in slide-in-from-top-5">
+            <div className="flex flex-col p-4 space-y-4 text-center">
+              <Link href="/products/uywni" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Social App</Link>
+              <Link href="/services" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Services</Link>
+              <Link href="/industries" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Industries</Link>
+              <Link href="/ai-agent" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>AI Agent</Link>
+              <Link href="/newsroom" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Newsroom</Link>
+              <Link href="/contact" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+              <Link href="/products/uywni" className="bg-primary text-primary-foreground py-3 rounded-xl font-bold" onClick={() => setIsMenuOpen(false)}>
+                Launch App
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
