@@ -43,7 +43,7 @@ export default function ContactPage() {
           </div>
 
           <div className="bg-card border border-border p-8 rounded-3xl shadow-lg">
-            <form action="mailto:contact@uywnix.com" method="post" enctype="text/plain" className="space-y-6">
+            <form action="mailto:contact@uywnix.com" method="post" encType="text/plain" className="space-y-6">
               <div>
                 <label className="block text-sm font-bold mb-2">Name</label>
                 <input type="text" name="name" className="w-full p-4 rounded-xl border border-input bg-background focus:ring-2 focus:ring-primary outline-none" required />
