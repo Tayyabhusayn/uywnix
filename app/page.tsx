@@ -24,7 +24,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="w-full py-24 md:py-32 lg:py-40 text-center container mx-auto px-4">
         <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
-          The Next Generation <br/> Social Media
+          The Next Generation <br/> Business Automation
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
           We build AI Employees that automate your business 24/7. From Customer Support to High-Ticket Sales.
@@ -33,8 +33,8 @@ export default function Home() {
           <Link href="/audit" className="bg-primary text-primary-foreground h-12 px-8 rounded-full flex items-center justify-center font-medium text-lg hover:opacity-90 transition-opacity">
             Free Business Audit
           </Link>
-          <Link href="/products/uywni" className="border border-input bg-background h-12 px-8 rounded-full flex items-center justify-center font-medium text-lg hover:bg-accent hover:text-accent-foreground transition-colors">
-            Explore UYWNI App
+          <Link href="/ai-agent" className="border border-input bg-background h-12 px-8 rounded-full flex items-center justify-center font-medium text-lg hover:bg-accent hover:text-accent-foreground transition-colors">
+            Try AI Sales Agent
           </Link>
         </div>
       </section>
@@ -49,11 +49,11 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
+            <Link href="/ai-agent" className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group cursor-pointer block">
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">🤖</div>
               <h3 className="text-xl font-bold mb-2">Customer Agent for Business</h3>
               <p className="text-muted-foreground">Replace traditional support with intelligent AI Agents that handle inquiries, bookings, and sales 24/7.</p>
-            </div>
+            </Link>
             <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">⚙️</div>
               <h3 className="text-xl font-bold mb-2">Business Automation</h3>
