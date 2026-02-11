@@ -26,8 +26,8 @@ export default function AiAgentPage() {
       // 1. Identification & Need Analysis
       if (lowerMsg.includes("support") || lowerMsg.includes("service")) {
         response = "Great. Our Support Agents can resolve 80% of inquiries instantly. How many support tickets do you get per week roughly?";
-      } else if (lowerMsg.includes("sale") || lowerMsg.includes("lead")) {
-        response = "Understood. Our Sales Agents are designed to capture and qualify leads 24/7. What is your average deal size?";
+      } else if (lowerMsg.includes("sale") || lowerMsg.includes("lead") || lowerMsg.includes("real estate") || lowerMsg.includes("agency")) {
+        response = "Understood. For Real Estate and Sales, our AI qualifies leads instantly 24/7. What is your average deal size?";
       } else if (lowerMsg.includes("call") || lowerMsg.includes("voice")) {
         response = "Our Voice Agents can handle 1000s of calls simultaneously with human-like intonation. Perfect for inbound support or outbound sales.";
       }
