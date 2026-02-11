@@ -1,4 +1,5 @@
 import Link from "next/link";
+import RoiCalculator from "@/components/RoiCalculator";
 
 export default function Home() {
   return (
@@ -37,6 +38,11 @@ export default function Home() {
             Try AI Sales Agent
           </Link>
         </div>
+      </section>
+
+      {/* ROI Calculator Section */}
+      <section className="w-full bg-black py-12">
+        <RoiCalculator />
       </section>
 
       {/* AI First Section - Services */}
