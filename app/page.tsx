@@ -27,7 +27,7 @@ export default function Home() {
           The Next Generation <br/> Social Media
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-          UYWNIX reimagines connection. AI-first, privacy-focused, and built for the future of decentralized interaction.
+          We build AI Employees that automate your business 24/7. From Customer Support to High-Ticket Sales.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/audit" className="bg-primary text-primary-foreground h-12 px-8 rounded-full flex items-center justify-center font-medium text-lg hover:opacity-90 transition-opacity">
