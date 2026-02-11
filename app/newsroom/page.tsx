@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import { getSortedPostsData } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title: "Newsroom - UYWNIX AI & Tech Insights | #1 Tech Blog",
@@ -7,31 +8,9 @@ export const metadata: Metadata = {
   keywords: "AI News, Tech Blog, Business Automation Insights, UYWNIX Newsroom",
 };
 
-const articles = [
-  {
-    id: 1,
-    title: "The Rise of AI Agents in Business",
-    excerpt: "How autonomous agents are transforming customer support and internal workflows in 2026.",
-    date: "Feb 08, 2026",
-    category: "AI & Automation"
-  },
-  {
-    id: 2,
-    title: "Introducing UYWNI: Social Media Reimagined",
-    excerpt: "Why we are building a new social platform focused on authentic connection and privacy.",
-    date: "Feb 01, 2026",
-    category: "Product"
-  },
-  {
-    id: 3,
-    title: "Web Development Trends for 2026",
-    excerpt: "From AI-generated UI to edge computing, here is what to expect this year.",
-    date: "Jan 20, 2026",
-    category: "Technology"
-  }
-];
-
 export default function NewsroomPage() {
+  const allPosts = getSortedPostsData();
+
   return (
     <div className="min-h-screen bg-background">
       <nav className="w-full border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
@@ -48,23 +27,25 @@ export default function NewsroomPage() {
         <p className="text-muted-foreground mb-12 text-lg">Insights, updates, and thoughts from the UYWNIX team.</p>
 
         <div className="space-y-12">
-          {articles.map((article) => (
-            <article key={article.id} className="group cursor-pointer">
-              <div className="flex flex-col md:flex-row gap-6 md:items-center">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 text-sm text-muted-foreground mb-2">
-                    <span className="font-semibold text-primary">{article.category}</span>
-                    <span>•</span>
-                    <span>{article.date}</span>
+          {allPosts.map((article) => (
+            <article key={article.id} className="group cursor-pointer border-b border-border pb-12">
+              <Link href={`/newsroom/${article.id}`}>
+                <div className="flex flex-col md:flex-row gap-6 md:items-center">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground mb-2">
+                      <span className="font-semibold text-primary">{article.category}</span>
+                      <span>•</span>
+                      <span>{article.date}</span>
+                    </div>
+                    <h2 className="text-2xl font-bold group-hover:underline decoration-2 underline-offset-4 mb-2">
+                      {article.title}
+                    </h2>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {article.excerpt}
+                    </p>
                   </div>
-                  <h2 className="text-2xl font-bold group-hover:underline decoration-2 underline-offset-4 mb-2">
-                    {article.title}
-                  </h2>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {article.excerpt}
-                  </p>
                 </div>
-              </div>
+              </Link>
             </article>
           ))}
         </div>
