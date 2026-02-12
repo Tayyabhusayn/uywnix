@@ -103,7 +103,7 @@ export default function PricingPage() {
         <div className="mt-24 text-center">
           <p className="text-muted-foreground mb-4">Need a custom quote?</p>
           <Link href="/contact" className="text-primary font-bold hover:underline">
-            Talk to our Sales Team ->
+            Talk to our Sales Team &rarr;
           </Link>
         </div>
       </main>
