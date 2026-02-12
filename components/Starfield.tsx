@@ -7,7 +7,7 @@ export default function Starfield() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || typeof window === 'undefined') return;
+    if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
