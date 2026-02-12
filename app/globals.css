@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #000000;
-  --primary: #000000; /* Solid Black */
-  --primary-foreground: #ffffff;
-  --card: #ffffff;
-  --card-foreground: #000000;
-  --border: #e5e5e5;
-  --input: #e5e5e5;
-  --ring: #000000;
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --card: #0a0a0a;
+  --card-foreground: #ffffff;
+  --border: #333333;
+  --input: #333333;
+  --ring: #ffffff;
   --radius: 0.5rem;
 }
 
@@ -34,9 +34,13 @@ body {
   font-family: var(--font-sans);
 }
 
-.hover-lift {
-  transition: transform 0.2s ease-in-out;
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
-.hover-lift:hover {
-  transform: translateY(-2px);
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
+
