@@ -38,7 +38,8 @@ export default function Home() {
       </nav>
 
       {/* Hero Section (Space Theme) */}
-      <section className="relative w-full py-32 md:py-48 text-center overflow-hidden bg-black">
+      <section className="relative w-full py-32 md:py-48 text-center overflow-hidden !bg-black">
+        <div className="absolute inset-0 bg-black -z-20"></div>
         <Starfield />
         <div className="container mx-auto px-4 relative z-10">
           <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 bg-white/10 text-white text-xs font-bold mb-8 animate-pulse backdrop-blur-sm">
