@@ -176,6 +176,19 @@ export default function Home() {
               <li><Link href="/contact" className="hover:text-black">Contact</Link></li>
             </ul>
           </div>
+          <div>
+            <h4 className="font-bold text-black mb-4">Follow Us</h4>
+            <div className="flex flex-col gap-2">
+              <a href="https://www.linkedin.com/company/uywnix/" target="_blank" className="text-muted-foreground hover:text-primary transition text-sm">LinkedIn</a>
+              <a href="https://x.com/UYWNIX" target="_blank" className="text-muted-foreground hover:text-primary transition text-sm">X (Twitter)</a>
+              <a href="https://www.instagram.com/uywnix" target="_blank" className="text-muted-foreground hover:text-primary transition text-sm">Instagram</a>
+              <a href="https://www.facebook.com/profile.php?id=61557697956190" target="_blank" className="text-muted-foreground hover:text-primary transition text-sm">Facebook</a>
+              <a href="https://bsky.app/profile/uywnix.bsky.social" target="_blank" className="text-muted-foreground hover:text-primary transition text-sm">Bluesky</a>
+            </div>
+          </div>
+        </div>
+        <div className="container mx-auto px-4 mt-8 pt-8 border-t border-border text-center text-xs text-muted-foreground">
+          © 2026 UYWNIX. Global Technology Solutions. Updated Feb 11.
         </div>
       </footer>
     </main>
