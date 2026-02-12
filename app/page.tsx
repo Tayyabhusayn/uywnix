@@ -57,17 +57,17 @@ export default function Home() {
       {/* Hero Section (Make.com Style) */}
       <section className="container mx-auto px-4 py-20 md:py-32">
         <div className="max-w-4xl">
-          <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-8 text-black leading-[0.9]">
+          <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-8 text-black leading-[0.9] animate-slide-up">
             Automate your <br/> <span className="text-gray-500">entire business.</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-500 mb-10 max-w-2xl leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-500 mb-10 max-w-2xl leading-relaxed animate-slide-up delay-100">
             From tasks and workflows to apps and systems, build and automate anything in one powerful visual platform.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 items-start">
-            <Link href="/audit" className="bg-black text-white h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg hover:bg-gray-800 transition shadow-xl">
+          <div className="flex flex-col sm:flex-row gap-4 items-start animate-slide-up delay-200">
+            <Link href="/audit" className="bg-black text-white h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg hover:bg-gray-800 transition shadow-xl hover-lift">
               Get Started Free
             </Link>
-            <Link href="/ai-agent" className="h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg text-black border border-gray-200 hover:bg-gray-50 transition">
+            <Link href="/ai-agent" className="h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg text-black border border-gray-200 hover:bg-gray-50 transition hover-lift">
               Watch Demo
             </Link>
           </div>
@@ -80,56 +80,56 @@ export default function Home() {
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
           {/* Item 1 */}
-          <Link href="/services" className="group block">
+          <Link href="/services" className="group block hover-lift animate-slide-up delay-100">
             <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">📢</div>
             <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">Marketing</h3>
             <p className="text-sm text-gray-500">Automate campaigns & content.</p>
           </Link>
           
           {/* Item 2 */}
-          <Link href="/ai-agent" className="group block">
+          <Link href="/ai-agent" className="group block hover-lift animate-slide-up delay-200">
             <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">📈</div>
             <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">Sales</h3>
             <p className="text-sm text-gray-500">Qualify leads 24/7.</p>
           </Link>
           
           {/* Item 3 */}
-          <Link href="/services" className="group block">
+          <Link href="/services" className="group block hover-lift animate-slide-up delay-300">
             <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">⚙️</div>
             <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">Operations</h3>
             <p className="text-sm text-gray-500">Streamline internal workflows.</p>
           </Link>
 
           {/* Item 4 */}
-          <Link href="/contact" className="group block">
+          <Link href="/contact" className="group block hover-lift animate-slide-up delay-300">
             <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">🎧</div>
             <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">Customer Exp.</h3>
             <p className="text-sm text-gray-500">Instant AI support agents.</p>
           </Link>
 
           {/* Item 5 */}
-          <Link href="/services" className="group block">
+          <Link href="/services" className="group block hover-lift animate-slide-up delay-300">
             <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">💰</div>
             <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">Finance</h3>
             <p className="text-sm text-gray-500">Invoice processing & OCR.</p>
           </Link>
 
           {/* Item 6 */}
-          <Link href="/services" className="group block">
+          <Link href="/services" className="group block hover-lift animate-slide-up delay-300">
             <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">💻</div>
             <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">IT</h3>
             <p className="text-sm text-gray-500">System integrations.</p>
           </Link>
           
            {/* Item 7 */}
-           <Link href="/services" className="group block">
+           <Link href="/services" className="group block hover-lift animate-slide-up delay-300">
             <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">👥</div>
             <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">HR</h3>
             <p className="text-sm text-gray-500">Onboarding automation.</p>
           </Link>
 
            {/* Item 8 */}
-           <Link href="/services" className="group block">
+           <Link href="/services" className="group block hover-lift animate-slide-up delay-300">
             <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">🚀</div>
             <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">Productivity</h3>
             <p className="text-sm text-gray-500">Personal AI assistants.</p>
