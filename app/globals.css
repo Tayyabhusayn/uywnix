@@ -2,14 +2,14 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a;
-  --primary: #6d28d9; /* Purple-700 (Make Style) */
+  --foreground: #000000;
+  --primary: #000000; /* Solid Black */
   --primary-foreground: #ffffff;
   --card: #ffffff;
-  --card-foreground: #0f172a;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #6d28d9;
+  --card-foreground: #000000;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #000000;
   --radius: 0.5rem;
 }
 
