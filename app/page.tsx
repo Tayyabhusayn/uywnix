@@ -8,30 +8,30 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen flex-col bg-white text-slate-900">
       {/* Navigation */}
-      <nav className="w-full border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold tracking-tighter">
-            UYWNIX
+      <nav className="w-full bg-white border-b border-slate-100 sticky top-0 z-50">
+        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+          <Link href="/" className="text-3xl font-black tracking-tight flex items-center gap-1">
+            <span className="text-purple-700">//</span> UYWNIX
           </Link>
           
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8 text-sm font-medium">
-            <Link href="/products/uywni" className="hover:text-primary/80 transition-colors">Social App</Link>
-            <Link href="/services" className="hover:text-primary/80 transition-colors">Services</Link>
-            <Link href="/industries" className="hover:text-primary/80 transition-colors">Industries</Link>
-            <Link href="/pricing" className="hover:text-primary/80 transition-colors">Pricing</Link>
-            <Link href="/ai-agent" className="hover:text-primary/80 transition-colors">AI Agent</Link>
-            <Link href="/newsroom" className="hover:text-primary/80 transition-colors">Newsroom</Link>
-            <Link href="/contact" className="hover:text-primary/80 transition-colors">Contact</Link>
+          <div className="hidden md:flex space-x-10 text-sm font-semibold text-slate-600">
+            <Link href="/services" className="hover:text-purple-700 transition">Solutions</Link>
+            <Link href="/pricing" className="hover:text-purple-700 transition">Pricing</Link>
+            <Link href="/newsroom" className="hover:text-purple-700 transition">Resources</Link>
+            <Link href="/contact" className="hover:text-purple-700 transition">Contact</Link>
+          </div>
+
+          <div className="hidden md:flex items-center gap-4">
+            <Link href="/ai-agent" className="text-sm font-bold text-slate-900 hover:text-purple-700">Log in</Link>
+            <Link href="/audit" className="bg-purple-700 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-purple-800 transition shadow-lg shadow-purple-200">
+              Get Started Free
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden p-2 text-primary" 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <button className="md:hidden p-2 text-slate-900" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? (
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 18 12"/></svg>
             ) : (
@@ -42,127 +42,140 @@ export default function Home() {
 
         {/* Mobile Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 w-full bg-background border-b border-border shadow-lg animate-in slide-in-from-top-5">
-            <div className="flex flex-col p-4 space-y-4 text-center">
-              <Link href="/products/uywni" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Social App</Link>
-              <Link href="/services" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Services</Link>
-              <Link href="/industries" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Industries</Link>
-              <Link href="/pricing" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Pricing</Link>
-              <Link href="/ai-agent" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>AI Agent</Link>
-              <Link href="/newsroom" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Newsroom</Link>
-              <Link href="/contact" className="py-2 hover:bg-secondary rounded-lg" onClick={() => setIsMenuOpen(false)}>Contact</Link>
-            </div>
+          <div className="md:hidden absolute top-20 left-0 w-full bg-white border-b border-slate-100 shadow-xl p-6 space-y-4 animate-in slide-in-from-top-5">
+            <Link href="/services" className="block text-lg font-semibold text-slate-700" onClick={() => setIsMenuOpen(false)}>Solutions</Link>
+            <Link href="/pricing" className="block text-lg font-semibold text-slate-700" onClick={() => setIsMenuOpen(false)}>Pricing</Link>
+            <Link href="/newsroom" className="block text-lg font-semibold text-slate-700" onClick={() => setIsMenuOpen(false)}>Resources</Link>
+            <Link href="/contact" className="block text-lg font-semibold text-slate-700" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+            <hr className="border-slate-100"/>
+            <Link href="/audit" className="block w-full bg-purple-700 text-white py-3 rounded-xl font-bold text-center" onClick={() => setIsMenuOpen(false)}>
+              Get Started Free
+            </Link>
           </div>
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="w-full py-24 md:py-32 lg:py-40 text-center container mx-auto px-4">
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70 animate-slide-up">
-          The Next Generation <br/> Business Automation
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-slide-up delay-100">
-          We build AI Employees that automate your business 24/7. From Customer Support to High-Ticket Sales.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up delay-200">
-          <Link href="/audit" className="bg-primary text-primary-foreground h-12 px-8 rounded-full flex items-center justify-center font-medium text-lg hover:opacity-90 transition-opacity hover-glow">
-            Free Business Audit
+      {/* Hero Section (Make.com Style) */}
+      <section className="container mx-auto px-4 py-20 md:py-32">
+        <div className="max-w-4xl">
+          <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-8 text-slate-900 leading-[0.9]">
+            Automate your <br/> <span className="text-purple-700">entire business.</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-slate-500 mb-10 max-w-2xl leading-relaxed">
+            From tasks and workflows to apps and systems, build and automate anything in one powerful visual platform.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 items-start">
+            <Link href="/audit" className="bg-purple-700 text-white h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg hover:bg-purple-800 transition shadow-xl shadow-purple-200">
+              Get Started Free
+            </Link>
+            <Link href="/ai-agent" className="h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg text-slate-700 border border-slate-200 hover:bg-slate-50 transition">
+              Watch Demo
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Solutions Grid (Make.com Style) */}
+      <section className="container mx-auto px-4 pb-32">
+        <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-12">SOLUTIONS ACROSS YOUR BUSINESS</p>
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
+          {/* Item 1 */}
+          <Link href="/services" className="group block">
+            <div className="text-3xl mb-4 text-purple-600 group-hover:-translate-y-1 transition-transform duration-300">📢</div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-purple-700 transition">Marketing</h3>
+            <p className="text-sm text-slate-500">Automate campaigns & content.</p>
           </Link>
-          <Link href="/ai-agent" className="border border-input bg-background h-12 px-8 rounded-full flex items-center justify-center font-medium text-lg hover:bg-accent hover:text-accent-foreground transition-colors hover-glow">
-            Try AI Sales Agent
+          
+          {/* Item 2 */}
+          <Link href="/ai-agent" className="group block">
+            <div className="text-3xl mb-4 text-purple-600 group-hover:-translate-y-1 transition-transform duration-300">📈</div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-purple-700 transition">Sales</h3>
+            <p className="text-sm text-slate-500">Qualify leads 24/7.</p>
+          </Link>
+          
+          {/* Item 3 */}
+          <Link href="/services" className="group block">
+            <div className="text-3xl mb-4 text-purple-600 group-hover:-translate-y-1 transition-transform duration-300">⚙️</div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-purple-700 transition">Operations</h3>
+            <p className="text-sm text-slate-500">Streamline internal workflows.</p>
+          </Link>
+
+          {/* Item 4 */}
+          <Link href="/contact" className="group block">
+            <div className="text-3xl mb-4 text-purple-600 group-hover:-translate-y-1 transition-transform duration-300">🎧</div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-purple-700 transition">Customer Exp.</h3>
+            <p className="text-sm text-slate-500">Instant AI support agents.</p>
+          </Link>
+
+          {/* Item 5 */}
+          <Link href="/services" className="group block">
+            <div className="text-3xl mb-4 text-purple-600 group-hover:-translate-y-1 transition-transform duration-300">💰</div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-purple-700 transition">Finance</h3>
+            <p className="text-sm text-slate-500">Invoice processing & OCR.</p>
+          </Link>
+
+          {/* Item 6 */}
+          <Link href="/services" className="group block">
+            <div className="text-3xl mb-4 text-purple-600 group-hover:-translate-y-1 transition-transform duration-300">💻</div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-purple-700 transition">IT</h3>
+            <p className="text-sm text-slate-500">System integrations.</p>
+          </Link>
+          
+           {/* Item 7 */}
+           <Link href="/services" className="group block">
+            <div className="text-3xl mb-4 text-purple-600 group-hover:-translate-y-1 transition-transform duration-300">👥</div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-purple-700 transition">HR</h3>
+            <p className="text-sm text-slate-500">Onboarding automation.</p>
+          </Link>
+
+           {/* Item 8 */}
+           <Link href="/services" className="group block">
+            <div className="text-3xl mb-4 text-purple-600 group-hover:-translate-y-1 transition-transform duration-300">🚀</div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-purple-700 transition">Productivity</h3>
+            <p className="text-sm text-slate-500">Personal AI assistants.</p>
           </Link>
         </div>
       </section>
 
-      {/* ROI Calculator Section */}
-      <section className="w-full bg-black py-12">
+      {/* ROI Section */}
+      <section className="bg-slate-50 py-24">
         <RoiCalculator />
       </section>
 
-      {/* AI First Section - Services */}
-      <section className="w-full py-24 bg-secondary/30" id="services">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Global Technology Solutions</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Officially automating all business operations with AI. We build the workforce of the future.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Link href="/ai-agent" className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group cursor-pointer block">
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">🤖</div>
-              <h3 className="text-xl font-bold mb-2">Customer Agent for Business</h3>
-              <p className="text-muted-foreground">Replace traditional support with intelligent AI Agents that handle inquiries, bookings, and sales 24/7.</p>
-            </Link>
-            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">⚙️</div>
-              <h3 className="text-xl font-bold mb-2">Business Automation</h3>
-              <p className="text-muted-foreground">End-to-end automation of workflows. From data entry to decision making, we make your business run on autopilot.</p>
-            </div>
-            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">📞</div>
-              <h3 className="text-xl font-bold mb-2">AI Voice Calling Agents</h3>
-              <p className="text-muted-foreground">Autonomous voice AI that handles inbound support calls and makes outbound sales calls with human-like realism.</p>
-            </div>
-            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">📧</div>
-              <h3 className="text-xl font-bold mb-2">Email Automation</h3>
-              <p className="text-muted-foreground">Cold outreach at scale. Our AI finds leads, writes personalized emails, and follows up until they reply.</p>
-            </div>
-            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">🔗</div>
-              <h3 className="text-xl font-bold mb-2">Blockchain & Web3</h3>
-              <p className="text-muted-foreground">Building the decentralized future with secure, transparent, and scalable blockchain infrastructure.</p>
-            </div>
-            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">📱</div>
-              <h3 className="text-xl font-bold mb-2">App Development</h3>
-              <p className="text-muted-foreground">High-performance mobile and web applications tailored for scalability and user experience.</p>
-            </div>
-            <div className="p-6 rounded-2xl border border-border bg-card hover:shadow-lg transition-all group">
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform">🛡️</div>
-              <h3 className="text-xl font-bold mb-2">Cybersecurity</h3>
-              <p className="text-muted-foreground">Enterprise-grade security audits and protection systems to safeguard your digital assets.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
-      <footer className="w-full py-12 border-t border-border mt-auto">
-        <div className="container mx-auto px-4 grid md:grid-cols-4 gap-8 text-sm">
+      <footer className="bg-white py-16 border-t border-slate-100">
+        <div className="container mx-auto px-4 grid md:grid-cols-4 gap-12 text-sm text-slate-500">
           <div>
-            <h4 className="font-bold mb-4">UYWNIX</h4>
-            <p className="text-muted-foreground">Global Technology Solutions.</p>
+            <h4 className="text-2xl font-black text-slate-900 mb-6 flex items-center gap-1">
+               <span className="text-purple-700">//</span> UYWNIX
+            </h4>
+            <p>Automate your work. Build something new.</p>
           </div>
           <div>
-            <h4 className="font-bold mb-4">Products</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><Link href="/products/uywni">Social App</Link></li>
-              <li><Link href="/ai-agent">AI Agents</Link></li>
-              <li><Link href="/industries">Industries</Link></li>
+            <h4 className="font-bold text-slate-900 mb-4">Product</h4>
+            <ul className="space-y-3">
+              <li><Link href="/ai-agent" className="hover:text-purple-700">Platform</Link></li>
+              <li><Link href="/pricing" className="hover:text-purple-700">Pricing</Link></li>
+              <li><Link href="/services" className="hover:text-purple-700">Templates</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-bold mb-4">Company</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><Link href="/newsroom">Newsroom</Link></li>
-              <li><Link href="/about">About Us</Link></li>
+            <h4 className="font-bold text-slate-900 mb-4">Resources</h4>
+            <ul className="space-y-3">
+              <li><Link href="/newsroom" className="hover:text-purple-700">Blog</Link></li>
+              <li><Link href="/contact" className="hover:text-purple-700">Community</Link></li>
+              <li><Link href="/contact" className="hover:text-purple-700">Help Center</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-bold mb-4">Follow Us</h4>
-            <div className="flex flex-col gap-2">
-              <a href="https://www.linkedin.com/company/uywnix/" target="_blank" className="text-muted-foreground hover:text-primary transition text-sm">LinkedIn</a>
-              <a href="https://x.com/UYWNIX" target="_blank" className="text-muted-foreground hover:text-primary transition text-sm">X (Twitter)</a>
-              <a href="https://www.instagram.com/uywnix" target="_blank" className="text-muted-foreground hover:text-primary transition text-sm">Instagram</a>
-              <a href="https://www.facebook.com/profile.php?id=61557697956190" target="_blank" className="text-muted-foreground hover:text-primary transition text-sm">Facebook</a>
-              <a href="https://bsky.app/profile/uywnix.bsky.social" target="_blank" className="text-muted-foreground hover:text-primary transition text-sm">Bluesky</a>
-            </div>
+            <h4 className="font-bold text-slate-900 mb-4">Company</h4>
+            <ul className="space-y-3">
+              <li><Link href="/about" className="hover:text-purple-700">About</Link></li>
+              <li><Link href="/contact" className="hover:text-purple-700">Careers</Link></li>
+              <li><Link href="/contact" className="hover:text-purple-700">Contact</Link></li>
+            </ul>
           </div>
-        </div>
-        <div className="container mx-auto px-4 mt-8 pt-8 border-t border-border text-center text-xs text-muted-foreground">
-          © 2026 UYWNIX. Global Technology Solutions. Updated Feb 11.
         </div>
       </footer>
     </main>
