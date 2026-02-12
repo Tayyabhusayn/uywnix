@@ -1,33 +1,37 @@
-import Starfield from "@/components/Starfield";
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import RoiCalculator from "@/components/RoiCalculator";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <main className="flex min-h-screen flex-col bg-white text-slate-900">
-      {/* Navigation - Dark for Hero */}
-      <nav className="w-full bg-black/90 border-b border-white/10 sticky top-0 z-50 backdrop-blur-md">
+      {/* Navigation */}
+      <nav className="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="text-3xl font-black tracking-tight flex items-center gap-1 text-white">
+          <Link href="/" className="text-3xl font-black tracking-tight flex items-center gap-1">
             UYWNIX
           </Link>
           
-          <div className="hidden md:flex space-x-10 text-sm font-semibold text-gray-300">
-            <Link href="/services" className="hover:text-white transition">Solutions</Link>
-            <Link href="/pricing" className="hover:text-white transition">Pricing</Link>
-            <Link href="/newsroom" className="hover:text-white transition">Resources</Link>
-            <Link href="/contact" className="hover:text-white transition">Contact</Link>
+          <div className="hidden md:flex space-x-10 text-sm font-semibold text-gray-600">
+            <Link href="/services" className="hover:text-black transition">Solutions</Link>
+            <Link href="/pricing" className="hover:text-black transition">Pricing</Link>
+            <Link href="/newsroom" className="hover:text-black transition">Resources</Link>
+            <Link href="/contact" className="hover:text-black transition">Contact</Link>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <Link href="/ai-agent" className="text-sm font-bold text-white hover:underline">Log in</Link>
-            <Link href="/audit" className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-bold hover:bg-gray-200 transition shadow-lg hover:shadow-white/20">
+            <Link href="/ai-agent" className="text-sm font-bold text-black hover:underline">Log in</Link>
+            <Link href="/audit" className="bg-black text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-gray-800 transition shadow-lg">
               Get Started Free
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden p-2 text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="md:hidden p-2 text-slate-900" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? (
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 18 12"/></svg>
             ) : (
@@ -35,34 +39,41 @@ export default function Home() {
             )}
           </button>
         </div>
-      </nav>
 
-      {/* Hero Section (Space Theme) */}
-      <section className="relative w-full py-32 md:py-48 text-center overflow-hidden">
-        <Starfield />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 bg-white/10 text-white text-xs font-bold mb-8 animate-pulse backdrop-blur-sm">
-            🚀 THE FUTURE OF WORK IS HERE
-          </div>
-          <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-8 text-white leading-[0.9] drop-shadow-2xl">
-            Automate your <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">entire business.</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
-            From tasks and workflows to apps and systems, build and automate anything in one powerful visual platform.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-            <Link href="/audit" className="bg-white text-black h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg hover:bg-gray-200 transition shadow-xl hover:scale-105 transform duration-200">
+        {/* Mobile Dropdown */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-20 left-0 w-full bg-white border-b border-slate-100 shadow-xl p-6 space-y-4 animate-in slide-in-from-top-5">
+            <Link href="/services" className="block text-lg font-semibold text-slate-700" onClick={() => setIsMenuOpen(false)}>Solutions</Link>
+            <Link href="/pricing" className="block text-lg font-semibold text-slate-700" onClick={() => setIsMenuOpen(false)}>Pricing</Link>
+            <Link href="/newsroom" className="block text-lg font-semibold text-slate-700" onClick={() => setIsMenuOpen(false)}>Resources</Link>
+            <Link href="/contact" className="block text-lg font-semibold text-slate-700" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+            <hr className="border-slate-100"/>
+            <Link href="/audit" className="block w-full bg-purple-700 text-white py-3 rounded-xl font-bold text-center" onClick={() => setIsMenuOpen(false)}>
               Get Started Free
             </Link>
-            <Link href="/ai-agent" className="h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg text-white border border-white/30 hover:bg-white/10 transition backdrop-blur-sm">
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Section (Make.com Style) */}
+      <section className="container mx-auto px-4 py-20 md:py-32">
+        <div className="max-w-4xl">
+          <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-8 text-black leading-[0.9]">
+            Automate your <br/> <span className="text-gray-500">entire business.</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-500 mb-10 max-w-2xl leading-relaxed">
+            From tasks and workflows to apps and systems, build and automate anything in one powerful visual platform.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 items-start">
+            <Link href="/audit" className="bg-black text-white h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg hover:bg-gray-800 transition shadow-xl">
+              Get Started Free
+            </Link>
+            <Link href="/ai-agent" className="h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg text-black border border-gray-200 hover:bg-gray-50 transition">
               Watch Demo
             </Link>
           </div>
         </div>
-        <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
       </section>
-
-      {/* Solutions Grid (Make.com Style - White) */}
 
       {/* Solutions Grid (Make.com Style) */}
       <section className="container mx-auto px-4 pb-32">
