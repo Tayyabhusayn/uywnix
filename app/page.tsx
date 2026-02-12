@@ -24,7 +24,6 @@ export default function Home() {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <Link href="/ai-agent" className="text-sm font-bold text-black hover:underline">Log in</Link>
             <Link href="/audit" className="bg-black text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-gray-800 transition shadow-lg">
               Get Started Free
             </Link>
