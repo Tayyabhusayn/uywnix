@@ -18,39 +18,23 @@ export default function AiAgentPage() {
     setInput("");
     setIsTyping(true);
 
-    // Advanced Sales Logic (Simulation Mode - Guaranteed to Work)
-    setTimeout(() => {
-      let response = "I can help with that. Could you tell me a bit more about your business?";
-      const lowerMsg = userMsg.toLowerCase();
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userMsg }),
+      });
 
-      // 1. Identification & Need Analysis
-      if (lowerMsg.includes("support") || lowerMsg.includes("service")) {
-        response = "Great. Our Support Agents can resolve 80% of inquiries instantly. How many support tickets do you get per week roughly?";
-      } else if (lowerMsg.includes("sale") || lowerMsg.includes("lead") || lowerMsg.includes("real estate") || lowerMsg.includes("agency")) {
-        response = "Understood. For Real Estate and Sales, our AI qualifies leads instantly 24/7. What is your average deal size?";
-      } else if (lowerMsg.includes("call") || lowerMsg.includes("voice")) {
-        response = "Our Voice Agents can handle 1000s of calls simultaneously with human-like intonation. Perfect for inbound support or outbound sales.";
-      }
-      // 2. Qualification
-      else if (/\d/.test(lowerMsg) && (lowerMsg.includes("ticket") || lowerMsg.includes("week"))) {
-        response = "Got it. At that volume, automation could save you ~20 hours/week. Do you currently use a CRM like HubSpot or Salesforce?";
-      }
-      // 3. Pricing / Objections
-      else if (lowerMsg.includes("price") || lowerMsg.includes("cost") || lowerMsg.includes("expensive")) {
-        response = "We offer custom packages starting from $500/month, which is 90% cheaper than hiring a human agent. Would you like to see a breakdown?";
-      }
-      // 4. Closing / Booking
-      else if (lowerMsg.includes("yes") || lowerMsg.includes("book") || lowerMsg.includes("demo")) {
-        response = "Excellent. You can book a priority demo with our founder here: https://calendly.com/uywnix/demo (This link will open your calendar).";
-      }
-      // 5. Contact Info
-      else if (lowerMsg.includes("@") || lowerMsg.includes(".com")) {
-        response = "Thanks! I've logged your email. A senior automation expert will reach out within 2 hours.";
-      }
+      if (!response.ok) throw new Error("API Error");
 
-      setMessages((prev) => [...prev, { role: "agent", content: response }]);
+      const data = await response.json();
+      setMessages((prev) => [...prev, { role: "agent", content: data.reply }]);
+    } catch (error) {
+      console.error("Chat Error:", error);
+      setMessages((prev) => [...prev, { role: "agent", content: "I am experiencing high traffic. Please try again later or book a demo." }]);
+    } finally {
       setIsTyping(false);
-    }, 1500);
+    }
   };
 
   return (
