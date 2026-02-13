@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import RoiCalculator from "@/components/RoiCalculator";
+import PerformanceMetrics from "@/components/PerformanceMetrics";
+import IndustrySolutions from "@/components/IndustrySolutions";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -76,7 +78,8 @@ export default function Home() {
 
       {/* Solutions Grid (Make.com Style) */}
       <section className="container mx-auto px-4 pb-32">
-        <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-12">SOLUTIONS ACROSS YOUR BUSINESS</p>
+        <PerformanceMetrics />
+        <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mt-16 mb-12">SOLUTIONS ACROSS YOUR BUSINESS</p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
           {/* Item 1 */}
@@ -141,6 +144,8 @@ export default function Home() {
       <section className="bg-gray-50 py-24">
         <RoiCalculator />
       </section>
+
+      <IndustrySolutions />
 
       {/* Footer */}
       <footer className="bg-white py-16 border-t border-gray-100">
