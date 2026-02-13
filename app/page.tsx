@@ -5,12 +5,14 @@ import Link from "next/link";
 import RoiCalculator from "@/components/RoiCalculator";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
 import IndustrySolutions from "@/components/IndustrySolutions";
+import TrustBar from "@/components/TrustBar";
+import LiveOperations from "@/components/LiveOperations";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <main className="flex min-h-screen flex-col bg-white text-slate-900">
+    <main className="flex min-h-screen flex-col bg-white text-slate-900 grid-bg">
       {/* Navigation */}
       <nav className="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
@@ -57,24 +59,27 @@ export default function Home() {
       </nav>
 
       {/* Hero Section (Make.com Style) */}
-      <section className="container mx-auto px-4 py-20 md:py-32">
-        <div className="max-w-4xl">
+      <section className="container mx-auto px-4 py-20 md:py-32 relative">
+        <LiveOperations />
+        <div className="max-w-4xl relative z-20">
           <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-8 text-black leading-[0.9] animate-slide-up">
-            Automate your <br/> <span className="text-gray-500">entire business.</span>
+            Automate your <br/> <span className="text-gray-400">entire business.</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-500 mb-10 max-w-2xl leading-relaxed animate-slide-up delay-100">
-            From tasks and workflows to apps and systems, build and automate anything in one powerful visual platform.
+            From tasks and workflows to apps and systems, build and automate anything with our next-generation <b>AI Global Infrastructure</b>.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-start animate-slide-up delay-200">
-            <Link href="/audit" className="bg-black text-white h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg hover:bg-gray-800 transition shadow-xl hover-lift">
+            <Link href="/audit" className="bg-black text-white h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg hover:bg-gray-800 transition shadow-xl hover-lift shimmer">
               Get Started Free
             </Link>
-            <Link href="/ai-agent" className="h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg text-black border border-gray-200 hover:bg-gray-50 transition hover-lift">
+            <Link href="/ai-agent" className="h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg text-black border border-gray-200 bg-white/50 backdrop-blur-md hover:bg-gray-50 transition hover-lift">
               Watch Demo
             </Link>
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* Solutions Grid (Make.com Style) */}
       <section className="container mx-auto px-4 pb-32">
