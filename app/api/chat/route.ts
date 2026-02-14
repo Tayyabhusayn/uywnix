@@ -68,6 +68,15 @@ INTERACTION RULES:
     const emails = message.match(emailRegex) || [];
     const phones = message.match(phoneRegex) || [];
 
+    // DEBUG: Check env vars
+    const hasToken = !!process.env.TELEGRAM_BOT_TOKEN;
+    const hasChatId = !!process.env.TELEGRAM_CHAT_ID;
+    
+    let debugMsg = "";
+    if (!hasToken || !hasChatId) {
+      debugMsg = ` [DEBUG: Missing Telegram Keys on Server! Token: ${hasToken}, ChatID: ${hasChatId}]`;
+    }
+
     if (emails.length > 0 || phones.length > 0) {
       console.log(`[LEAD CAPTURED] Emails: ${emails.join(", ")}, Phones: ${phones.join(", ")}`);
       
@@ -75,31 +84,36 @@ INTERACTION RULES:
       try {
         const leadMsg = `🚨 *New Lead Captured from Chatbot!*\n\n📧 Emails: ${emails.length > 0 ? emails.join(", ") : "None"}\n📱 Phones: ${phones.length > 0 ? phones.join(", ") : "None"}\n\n💬 Message: ${message}`;
         
-        // Telegram Bot API integration
-        // Replace BOT_TOKEN and CHAT_ID with your actual credentials
         const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN; 
         const CHAT_ID = process.env.TELEGRAM_CHAT_ID; 
 
         if (!BOT_TOKEN || !CHAT_ID) {
           console.error("Telegram credentials missing");
-          return;
+          debugMsg += " [DEBUG: Telegram send skipped - credentials missing]";
+        } else {
+             const tgRes = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                chat_id: CHAT_ID,
+                text: leadMsg,
+                parse_mode: "Markdown",
+              }),
+            });
+            if (!tgRes.ok) {
+                 const tgErr = await tgRes.text();
+                 debugMsg += ` [DEBUG: Telegram API Error: ${tgRes.status} - ${tgErr}]`;
+            } else {
+                 debugMsg += " [DEBUG: Telegram Sent Successfully]";
+            }
         }
-        
-        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            chat_id: CHAT_ID,
-            text: leadMsg,
-            parse_mode: "Markdown",
-          }),
-        });
-      } catch (err) {
+      } catch (err: any) {
         console.error("Lead notification failed:", err);
+        debugMsg += ` [DEBUG: Telegram Fetch Error: ${err.message}]`;
       }
     }
 
-    return NextResponse.json({ reply });
+    return NextResponse.json({ reply: reply + debugMsg });
   } catch (error: any) {
     console.error("Chat Error:", error);
     // DEBUG: Show actual error
