@@ -47,7 +47,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            We don't just automate tasks. We build <span className="font-semibold text-slate-900">Digital Employees</span> that work 24/7. Deploy AI Sales Agents and Voice Ops in Dubai, NYC, and London.
+            We don't just automate tasks. We build <span className="font-semibold text-slate-900">Digital Employees</span> that work 24/7. Deploy AI Sales Agents and Voice Ops anywhere in the world.
           </motion.p>
 
           <motion.div
