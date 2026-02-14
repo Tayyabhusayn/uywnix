@@ -7,6 +7,8 @@ import PerformanceMetrics from "@/components/PerformanceMetrics";
 import IndustrySolutions from "@/components/IndustrySolutions";
 import TrustBar from "@/components/TrustBar";
 import LiveOperations from "@/components/LiveOperations";
+import Hero from "@/components/Hero";
+import FeatureGrid from "@/components/FeatureGrid";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,13 +16,13 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-white text-slate-900 grid-bg">
       {/* Navigation */}
-      <nav className="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
+      <nav className="w-full bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="text-3xl font-black tracking-tight flex items-center gap-1">
             UYWNIX
           </Link>
           
-          <div className="hidden md:flex space-x-10 text-sm font-semibold text-gray-600">
+          <div className="hidden md:flex space-x-10 text-sm font-bold text-gray-500">
             <Link href="/services" className="hover:text-black transition">Solutions</Link>
             <Link href="/pricing" className="hover:text-black transition">Pricing</Link>
             <Link href="/newsroom" className="hover:text-black transition">Resources</Link>
@@ -28,7 +30,7 @@ export default function Home() {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <Link href="/audit" className="bg-black text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-gray-800 transition shadow-lg">
+            <Link href="/audit" className="bg-black text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-gray-800 transition shadow-lg hover:-translate-y-0.5 transform">
               Get Started Free
             </Link>
           </div>
@@ -59,99 +61,26 @@ export default function Home() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16 md:py-32 relative overflow-hidden">
-        <LiveOperations />
-        <div className="max-w-4xl relative z-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-8 animate-fade-in">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-            System Active: v2.4 Global Infrastructure
-          </div>
-          <h1 className="text-5xl md:text-8xl font-black tracking-tight mb-8 text-black leading-[0.95] animate-slide-up">
-            Global AI <br/> <span className="text-gray-400">Automation Agency.</span>
-          </h1>
-          <p className="text-lg md:text-2xl text-gray-500 mb-10 max-w-2xl leading-relaxed animate-slide-up delay-100">
-            Automate your business operations with <b>UYWNIX</b>. We build AI Sales Agents and Voice Employees that drive 10x ROI and 60% cost reduction for enterprises.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 items-start animate-slide-up delay-200">
-            <Link href="/audit" className="bg-black text-white h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg hover:bg-gray-800 transition shadow-xl hover-lift shimmer">
-              Get Started Free
-            </Link>
-            <Link href="/ai-agent" className="h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg text-black border border-gray-200 bg-white hover:bg-gray-50 transition hover-lift">
-              Watch Demo
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Dynamic Hero */}
+      <Hero />
+
+      {/* Live Operations Ticker (Optional: Keep or remove depending on Hero integration) */}
+      <div className="hidden md:block">
+         <LiveOperations />
+      </div>
 
       <TrustBar />
 
-      {/* Solutions Grid (Make.com Style) */}
-      <section className="container mx-auto px-4 pb-32">
-        <PerformanceMetrics />
-        <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mt-16 mb-12">SOLUTIONS ACROSS YOUR BUSINESS</p>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
-          {/* Item 1 */}
-          <Link href="/services" className="group block hover-lift animate-slide-up delay-100">
-            <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">📢</div>
-            <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">Marketing</h3>
-            <p className="text-sm text-gray-500">Automate campaigns & content.</p>
-          </Link>
-          
-          {/* Item 2 */}
-          <Link href="/ai-agent" className="group block hover-lift animate-slide-up delay-200">
-            <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">📈</div>
-            <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">Sales</h3>
-            <p className="text-sm text-gray-500">Qualify leads 24/7.</p>
-          </Link>
-          
-          {/* Item 3 */}
-          <Link href="/services" className="group block hover-lift animate-slide-up delay-300">
-            <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">⚙️</div>
-            <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">Operations</h3>
-            <p className="text-sm text-gray-500">Streamline internal workflows.</p>
-          </Link>
-
-          {/* Item 4 */}
-          <Link href="/contact" className="group block hover-lift animate-slide-up delay-300">
-            <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">🎧</div>
-            <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">Customer Exp.</h3>
-            <p className="text-sm text-gray-500">Instant AI support agents.</p>
-          </Link>
-
-          {/* Item 5 */}
-          <Link href="/services" className="group block hover-lift animate-slide-up delay-300">
-            <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">💰</div>
-            <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">Finance</h3>
-            <p className="text-sm text-gray-500">Invoice processing & OCR.</p>
-          </Link>
-
-          {/* Item 6 */}
-          <Link href="/services" className="group block hover-lift animate-slide-up delay-300">
-            <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">💻</div>
-            <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">IT</h3>
-            <p className="text-sm text-gray-500">System integrations.</p>
-          </Link>
-          
-           {/* Item 7 */}
-           <Link href="/services" className="group block hover-lift animate-slide-up delay-300">
-            <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">👥</div>
-            <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">HR</h3>
-            <p className="text-sm text-gray-500">Onboarding automation.</p>
-          </Link>
-
-           {/* Item 8 */}
-           <Link href="/services" className="group block hover-lift animate-slide-up delay-300">
-            <div className="text-3xl mb-4 text-black group-hover:-translate-y-1 transition-transform duration-300">🚀</div>
-            <h3 className="text-xl font-bold text-black mb-2 group-hover:text-gray-600 transition">Productivity</h3>
-            <p className="text-sm text-gray-500">Personal AI assistants.</p>
-          </Link>
-        </div>
+      {/* Performance Metrics */}
+      <section className="py-20">
+         <PerformanceMetrics />
       </section>
 
+      {/* Interactive Solutions Grid */}
+      <FeatureGrid />
+
       {/* ROI Section */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-slate-50 py-20 md:py-32 border-y border-slate-200">
         <RoiCalculator />
       </section>
 
