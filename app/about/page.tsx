@@ -2,8 +2,9 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | Global AI Automation Agency",
-  description: "Learn about UYWNIX, the global leader in AI Agents and Business Automation. Our mission is to automate operations and drive ROI through next-gen technology.",
+  title: "About UYWNIX | Top Global AI Automation Agency",
+  description: "UYWNIX is the world's leading AI Automation Agency. Learn how we use AI Sales Agents and Voice Employees to help businesses in Dubai, USA, and India scale with 10x ROI and extreme efficiency.",
+  keywords: "Top AI Automation Agency, UYWNIX About, AI Business Experts, Global Tech Solutions Company, AI Automation Experts Dubai, USA AI Agency",
   alternates: {
     canonical: '/about',
   },

@@ -2,8 +2,9 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pricing Plans - AI Automation & Agents",
-  description: "Affordable and scalable AI automation plans for businesses of all sizes. From Starter to Enterprise, automate your workflows today.",
+  title: "AI Automation Pricing | Affordable AI Sales Agents & Bots",
+  description: "Explore the most competitive AI automation pricing plans. From Starter AI Bots to Enterprise-grade AI Employees, UYWNIX provides high-ROI solutions starting at $997/mo. Save 60% on operations today.",
+  keywords: "AI Automation Pricing, AI Sales Agent Cost, AI Voice Employee Pricing, Business Automation Plans, Affordable AI Solutions, UYWNIX Pricing, Enterprise AI Services",
   alternates: {
     canonical: '/pricing',
   },
@@ -68,6 +69,25 @@ export default function PricingPage() {
       </nav>
 
       <main className="container mx-auto px-4 py-24">
+        {/* Pricing Schema for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              "name": "UYWNIX AI Automation Services",
+              "description": "Global AI Automation and AI Sales Agent Services",
+              "offers": {
+                "@type": "AggregateOffer",
+                "offerCount": "3",
+                "lowPrice": "997",
+                "highPrice": "2997",
+                "priceCurrency": "USD"
+              }
+            }),
+          }}
+        />
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-5xl font-bold tracking-tight mb-6">Simple, Transparent Pricing</h1>
           <p className="text-xl text-muted-foreground">

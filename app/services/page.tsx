@@ -2,8 +2,9 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Solutions & Automation Services",
-  description: "UYWNIX offers advanced AI Agents, Workflow Automation, Web3 Development, and Cybersecurity audits to scale your business globally.",
+  title: "Best AI Automation Services | AI Sales Agents & Voice Employees",
+  description: "UYWNIX provides the world's best AI Automation services. We deploy AI Sales Agents, AI Voice Employees, and Custom Workflow Automation to scale businesses in Dubai, USA, and UK. Get 10x ROI with our expert AI agency.",
+  keywords: "Best AI Automation Services, AI Sales Agency, Deploy AI Sales Agents, AI Voice Employee for Business, Lead Qualification Automation, CRM Workflow Integration, High-Ticket AI Solutions",
   alternates: {
     canonical: '/services',
   },
@@ -13,32 +14,32 @@ const services = [
   {
     icon: "🤖",
     title: "AI Sales Agents",
-    desc: "Autonomous bots that qualify leads, handle objections, and book meetings directly on your calendar."
+    desc: "The best AI Sales Agents for lead qualification. Our autonomous bots handle cold outreach, qualify prospects 24/7, and book high-ticket meetings directly into your calendar with 100% accuracy."
+  },
+  {
+    icon: "📞",
+    title: "AI Voice Employees",
+    desc: "Hire human-like AI Voice Employees for your business. Perfect for inbound support, appointment setting, and customer follow-ups. Our voice bots sound natural and handle complex logic flawlessly."
   },
   {
     icon: "⚙️",
     title: "Workflow Automation",
-    desc: "Connect your CRM, Email, and Slack. We build invisible pipelines that make your operations run on autopilot."
-  },
-  {
-    icon: "📱",
-    title: "App Development",
-    desc: "Next-gen mobile and web apps built with React Native and AI backends. Fast, scalable, and beautiful."
+    desc: "End-to-end business process automation. We build invisible pipelines connecting your CRM, Email, and internal tools to eliminate manual work and save your team 20+ hours every week."
   },
   {
     icon: "🛡️",
-    title: "Cybersecurity",
-    desc: "Enterprise-grade security audits. We ensure your automated infrastructure is bulletproof."
+    title: "Enterprise Cybersecurity",
+    desc: "Elite security audits and threat detection for automated infrastructures. We ensure your AI systems and customer data are protected by enterprise-grade encryption and HIPAA/GDPR compliance."
   },
   {
     icon: "📈",
-    title: "AI Marketing",
-    desc: "Data-driven ad campaigns and content generation at scale. Reach global markets instantly."
+    title: "AI Marketing Scale",
+    desc: "Dominate your market with AI-driven content generation and ad management. We use advanced data models to optimize your marketing spend and reach global audiences across all social platforms."
   },
   {
     icon: "🔗",
-    title: "Blockchain & Web3",
-    desc: "Decentralized applications (dApps) and smart contracts for the future of finance and ownership."
+    title: "Custom AI Development",
+    desc: "High-performance Next.js and React Native applications with integrated AI backends. We build custom software solutions tailored to your specific business needs and scaling goals."
   }
 ];
 
@@ -53,6 +54,42 @@ export default function ServicesPage() {
       </nav>
 
       <main className="container mx-auto px-4 py-24">
+        {/* FAQ Schema for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What is an AI Sales Agent?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "An AI Sales Agent is an autonomous system designed to qualify leads, handle customer objections, and book meetings 24/7 without human intervention."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How much can I save with AI Automation?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Businesses typically see a 60% reduction in operational costs and a 10x return on investment (ROI) within the first 6 months of deployment."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Are AI Voice Employees compliant?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our AI Voice Employees are built with HIPAA and GDPR compliance in mind, ensuring secure and private data handling."
+                  }
+                }
+              ]
+            }),
+          }}
+        />
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-5xl font-bold tracking-tight mb-6">Our Services</h1>
           <p className="text-xl text-muted-foreground">
