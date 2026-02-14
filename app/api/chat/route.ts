@@ -54,7 +54,8 @@ INTERACTION RULES:
     if (!response.ok) {
       const errorText = await response.text();
       console.error("NVIDIA API Error:", errorText);
-      throw new Error(`NVIDIA API Error: ${response.status}`);
+      // DEBUG: Return the actual error to the client for troubleshooting
+      return NextResponse.json({ reply: `System Error: ${response.status} - ${errorText.substring(0, 100)}... (Check API Key)` });
     }
 
     const data = await response.json();
@@ -99,8 +100,9 @@ INTERACTION RULES:
     }
 
     return NextResponse.json({ reply });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Chat Error:", error);
-    return NextResponse.json({ reply: "I am currently experiencing high traffic. Please try again or book a demo directly." });
+    // DEBUG: Show actual error
+    return NextResponse.json({ reply: `Connection Error: ${error.message}` });
   }
 }
