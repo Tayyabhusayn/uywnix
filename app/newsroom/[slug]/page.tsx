@@ -54,6 +54,32 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
 
   return (
     <article className="min-h-screen bg-white text-black py-24 px-4 container mx-auto max-w-3xl">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "description": post.excerpt,
+            "image": ["https://uywnix.com/og-image.png"],
+            "datePublished": post.date,
+            "author": {
+              "@type": "Organization",
+              "name": "UYWNIX",
+              "url": "https://uywnix.com"
+            },
+             "publisher": {
+              "@type": "Organization",
+              "name": "UYWNIX",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://uywnix.com/logo.png"
+              }
+            }
+          })
+        }}
+      />
       <div className="mb-8">
         <Link href="/newsroom" className="text-sm font-bold text-gray-400 hover:text-black mb-4 block">← Back to Newsroom</Link>
         <span className="text-sm font-bold text-blue-600 uppercase tracking-wider">{post.category} • {post.date}</span>

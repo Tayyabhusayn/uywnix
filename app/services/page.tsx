@@ -54,6 +54,35 @@ export default function ServicesPage() {
       </nav>
 
       <main className="container mx-auto px-4 py-24">
+        {/* Service Schema for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "serviceType": "AI Automation Agency",
+              "provider": {
+                "@type": "Organization",
+                "name": "UYWNIX",
+                "url": "https://uywnix.com"
+              },
+              "areaServed": ["World", "Dubai", "USA", "India"],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "AI Services",
+                "itemListElement": services.map(s => ({
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": s.title,
+                    "description": s.desc
+                  }
+                }))
+              }
+            }),
+          }}
+        />
         {/* FAQ Schema for SEO */}
         <script
           type="application/ld+json"

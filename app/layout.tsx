@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | UYWNIX"
   },
   description: "UYWNIX is a premier AI Automation Agency providing AI Sales Agents, AI Voice Employees, and Workflow Automation. Scaling businesses in Dubai, USA, India, and UK with ROI-driven AI solutions.",
-  keywords: "AI Automation Agency, AI Sales Agents, AI Voice Employees, Business Process Automation, Custom AI Solutions, Digital Transformation, AI Chatbots for Business, Dubai AI Agency, USA AI Automation",
+  keywords: "AI Automation Agency, AI Sales Agents, AI Voice Employees, Business Process Automation, Custom AI Solutions, Digital Transformation, AI Chatbots for Business, Dubai AI Agency, USA AI Automation, Real Estate AI Automation, AI for Legal Firms, Solar Industry AI, Automated Lead Qualification, 24/7 AI Customer Support, Enterprise AI Solutions",
   authors: [{ name: "UYWNIX Team" }],
   creator: "UYWNIX",
   publisher: "UYWNIX",
