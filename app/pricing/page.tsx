@@ -2,8 +2,11 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pricing - UYWNIX AI Solutions",
-  description: "Transparent pricing for AI Automation services. Choose the plan that fits your business.",
+  title: "Pricing Plans - AI Automation & Agents",
+  description: "Affordable and scalable AI automation plans for businesses of all sizes. From Starter to Enterprise, automate your workflows today.",
+  alternates: {
+    canonical: '/pricing',
+  },
 };
 
 const plans = [

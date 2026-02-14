@@ -6,29 +6,57 @@ import SmartChatbot from "@/components/SmartChatbot";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "UYWNIX - #1 Global Technology Solutions | AI, Blockchain & Marketing",
+  metadataBase: new URL('https://uywnix.com'),
+  title: {
+    default: "UYWNIX - #1 Global Technology Solutions | AI, Blockchain & Marketing",
+    template: "%s | UYWNIX"
+  },
   description: "UYWNIX is the global leader in AI Agents, Business Automation, and Digital Marketing. Transforming businesses in India, UAE, USA, and worldwide.",
   keywords: "AI Agents, Business Automation, Global Technology Solutions, Digital Marketing, Blockchain, Web3, UYWNI Social App, Next Gen Tech",
+  authors: [{ name: "UYWNIX Team" }],
+  creator: "UYWNIX",
+  publisher: "UYWNIX",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: "UYWNIX - Global Tech & AI Solutions",
     description: "Empowering businesses with AI Agents, Automation, and Next-Gen Marketing.",
-    type: "website",
-    locale: "en_US",
+    url: 'https://uywnix.com',
     siteName: "UYWNIX",
     images: [
       {
-        url: 'https://uywnix.com/og-image.png', // We need to add this image
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'UYWNIX AI Automation',
       },
     ],
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "UYWNIX - AI & Global Tech",
     description: "Leading the revolution in AI Agents and Business Automation.",
-    images: ['https://uywnix.com/og-image.png'],
+    images: ['/og-image.png'],
+    creator: "@UYWNIX",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 

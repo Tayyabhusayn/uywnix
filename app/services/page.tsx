@@ -2,8 +2,11 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our Services - AI & Automation Solutions",
-  description: "Explore our services: AI Agents, Business Automation, App Development, and Cybersecurity.",
+  title: "AI Solutions & Automation Services",
+  description: "UYWNIX offers advanced AI Agents, Workflow Automation, Web3 Development, and Cybersecurity audits to scale your business globally.",
+  alternates: {
+    canonical: '/services',
+  },
 };
 
 const services = [

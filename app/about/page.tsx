@@ -2,8 +2,11 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About UYWNIX - AI Automation Agency",
-  description: "We are a global team of engineers and AI experts dedicated to automating business operations. Learn about our mission.",
+  title: "About Us | Global AI Automation Agency",
+  description: "Learn about UYWNIX, the global leader in AI Agents and Business Automation. Our mission is to automate operations and drive ROI through next-gen technology.",
+  alternates: {
+    canonical: '/about',
+  },
 };
 
 export default function AboutPage() {

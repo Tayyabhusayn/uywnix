@@ -61,6 +61,39 @@ INTERACTION RULES:
     const data = await response.json();
     const reply = data.choices[0]?.message?.content || "I apologize, but I couldn't generate a response.";
 
+    // Lead Capture Logic
+    const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
+    const phoneRegex = /(\+?\d{1,4}[-.\s]?)?(\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4,6}/g;
+    
+    const emails = message.match(emailRegex) || [];
+    const phones = message.match(phoneRegex) || [];
+
+    if (emails.length > 0 || phones.length > 0) {
+      console.log(`[LEAD CAPTURED] Emails: ${emails.join(", ")}, Phones: ${phones.join(", ")}`);
+      
+      // Proactive notification via Telegram
+      try {
+        const leadMsg = `🚨 *New Lead Captured from Chatbot!*\n\n📧 Emails: ${emails.length > 0 ? emails.join(", ") : "None"}\n📱 Phones: ${phones.length > 0 ? phones.join(", ") : "None"}\n\n💬 Message: ${message}`;
+        
+        // Telegram Bot API integration
+        // Replace BOT_TOKEN and CHAT_ID with your actual credentials
+        const BOT_TOKEN = "8538411059:AAGXQ_AWvxj5kxH_N-r4skDHulXSOFrEM38"; 
+        const CHAT_ID = "6318300713"; 
+        
+        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: leadMsg,
+            parse_mode: "Markdown",
+          }),
+        });
+      } catch (err) {
+        console.error("Lead notification failed:", err);
+      }
+    }
+
     return NextResponse.json({ reply });
   } catch (error) {
     console.error("Chat Error:", error);

@@ -1,9 +1,27 @@
 import { MetadataRoute } from 'next';
+import fs from 'fs';
+import path from 'path';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://uywnix.com';
+  const postsDirectory = path.join(process.cwd(), 'content/posts');
+  
+  let postUrls: MetadataRoute.Sitemap = [];
+  
+  if (fs.existsSync(postsDirectory)) {
+    const fileNames = fs.readdirSync(postsDirectory);
+    postUrls = fileNames.map((fileName) => {
+      const id = fileName.replace(/\.md$/, '');
+      return {
+        url: `${baseUrl}/newsroom/${id}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+      };
+    });
+  }
 
-  return [
+  const routes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -59,4 +77,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
   ];
+
+  return [...routes, ...postUrls];
 }

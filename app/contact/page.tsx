@@ -2,8 +2,11 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact UYWNIX - Global Support",
-  description: "Get in touch with our team in India, UAE, and USA. Let's discuss your AI automation project.",
+  title: "Contact Form | Get in Touch with UYWNIX",
+  description: "Contact UYWNIX for inquiries about AI Agents, Business Automation, and Global Tech Solutions. We serve clients across UAE, India, USA, and UK.",
+  alternates: {
+    canonical: '/contact',
+  },
 };
 
 export default function ContactPage() {
