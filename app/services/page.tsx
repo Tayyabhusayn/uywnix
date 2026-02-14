@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -46,13 +45,6 @@ const services = [
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-background">
-      <nav className="w-full border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold tracking-tighter">UYWNIX</Link>
-          <Link href="/" className="text-sm font-medium hover:text-primary/80">Back to Home</Link>
-        </div>
-      </nav>
-
       <main className="container mx-auto px-4 py-24">
         {/* Service Schema for SEO */}
         <script
@@ -136,14 +128,6 @@ export default function ServicesPage() {
               </p>
             </div>
           ))}
-        </div>
-
-        <div className="mt-24 text-center bg-secondary/30 rounded-3xl p-12">
-          <h2 className="text-3xl font-bold mb-6">Not sure what you need?</h2>
-          <p className="text-muted-foreground mb-8">Take our free audit to find the perfect automation strategy for your business.</p>
-          <Link href="/audit" className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition-opacity">
-            Start Free Audit
-          </Link>
         </div>
       </main>
     </div>

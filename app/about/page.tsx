@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,13 +12,6 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
-      <nav className="w-full border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold tracking-tighter">UYWNIX</Link>
-          <Link href="/" className="text-sm font-medium hover:text-primary/80">Back to Home</Link>
-        </div>
-      </nav>
-
       <main className="container mx-auto px-4 py-24 max-w-4xl">
         <h1 className="text-5xl font-bold tracking-tight mb-8">About UYWNIX</h1>
         <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
@@ -50,13 +42,6 @@ export default function AboutPage() {
             <p className="text-muted-foreground">We focus on ROI. If it doesn't save money, we don't build it.</p>
           </div>
         </section>
-
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-6">Ready to transform your business?</h2>
-          <Link href="/contact" className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-bold hover:opacity-90 transition-opacity">
-            Contact Us
-          </Link>
-        </div>
       </main>
     </div>
   );
