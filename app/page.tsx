@@ -47,13 +47,13 @@ export default function Home() {
 
         {/* Mobile Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden fixed inset-0 bg-white z-[55] flex flex-col p-8 pt-24 space-y-6">
-            <Link href="/services" className="text-3xl font-black text-black" onClick={() => setIsMenuOpen(false)}>Solutions</Link>
-            <Link href="/pricing" className="text-3xl font-black text-black" onClick={() => setIsMenuOpen(false)}>Pricing</Link>
-            <Link href="/newsroom" className="text-3xl font-black text-black" onClick={() => setIsMenuOpen(false)}>Resources</Link>
-            <Link href="/contact" className="text-3xl font-black text-black" onClick={() => setIsMenuOpen(false)}>Contact</Link>
-            <div className="pt-8">
-              <Link href="/audit" className="block w-full bg-black text-white py-4 rounded-full font-bold text-center text-xl shadow-xl" onClick={() => setIsMenuOpen(false)}>
+          <div className="md:hidden fixed inset-0 bg-white z-[100] flex flex-col p-8 pt-32 space-y-8 animate-fade-in">
+            <Link href="/services" className="text-4xl font-black text-slate-900 tracking-tight hover:text-slate-600 transition" onClick={() => setIsMenuOpen(false)}>Solutions</Link>
+            <Link href="/pricing" className="text-4xl font-black text-slate-900 tracking-tight hover:text-slate-600 transition" onClick={() => setIsMenuOpen(false)}>Pricing</Link>
+            <Link href="/newsroom" className="text-4xl font-black text-slate-900 tracking-tight hover:text-slate-600 transition" onClick={() => setIsMenuOpen(false)}>Resources</Link>
+            <Link href="/contact" className="text-4xl font-black text-slate-900 tracking-tight hover:text-slate-600 transition" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+            <div className="pt-8 border-t border-gray-100 mt-4">
+              <Link href="/audit" className="block w-full bg-slate-900 text-white py-5 rounded-full font-bold text-center text-xl shadow-xl hover:bg-slate-800 transition" onClick={() => setIsMenuOpen(false)}>
                 Get Started Free
               </Link>
             </div>
