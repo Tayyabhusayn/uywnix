@@ -77,8 +77,13 @@ INTERACTION RULES:
         
         // Telegram Bot API integration
         // Replace BOT_TOKEN and CHAT_ID with your actual credentials
-        const BOT_TOKEN = "8538411059:AAGXQ_AWvxj5kxH_N-r4skDHulXSOFrEM38"; 
-        const CHAT_ID = "6318300713"; 
+        const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN; 
+        const CHAT_ID = process.env.TELEGRAM_CHAT_ID; 
+
+        if (!BOT_TOKEN || !CHAT_ID) {
+          console.error("Telegram credentials missing");
+          return;
+        }
         
         await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
           method: "POST",
