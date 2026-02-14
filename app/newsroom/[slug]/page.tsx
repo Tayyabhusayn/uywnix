@@ -1,5 +1,6 @@
 import { getPostData, getSortedPostsData } from "@/lib/posts";
 import { Metadata } from "next";
+import Link from "next/link";
 
 // Force static generation for Vercel
 export const dynamicParams = false;
@@ -47,6 +48,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await getPostData(slug);
+  const articleUrl = `https://uywnix.com/newsroom/${slug}`;
+  const articleTitle = encodeURIComponent(post.title);
+  const shareUrl = encodeURIComponent(articleUrl);
 
   return (
     <article className="min-h-screen bg-white text-black py-24 px-4 container mx-auto max-w-3xl">
@@ -55,11 +59,39 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
         <span className="text-sm font-bold text-blue-600 uppercase tracking-wider">{post.category} • {post.date}</span>
         <h1 className="text-4xl md:text-6xl font-black tracking-tighter mt-2 mb-6 leading-tight">{post.title}</h1>
       </div>
-      <div className="prose prose-lg prose-gray max-w-none">
+      <div className="prose prose-lg prose-gray max-w-none mb-16">
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      </div>
+
+      <div className="border-t border-gray-100 pt-12">
+        <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6 text-center">Share this insight</p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a 
+            href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 bg-[#0077b5] text-white rounded-full font-bold text-sm hover:opacity-90 transition-opacity flex items-center gap-2"
+          >
+            LinkedIn
+          </a>
+          <a 
+            href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${articleTitle}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 bg-[#000000] text-white rounded-full font-bold text-sm hover:opacity-90 transition-opacity flex items-center gap-2"
+          >
+            Twitter / X
+          </a>
+          <a 
+            href={`https://api.whatsapp.com/send?text=${articleTitle}%20${shareUrl}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 bg-[#25D366] text-white rounded-full font-bold text-sm hover:opacity-90 transition-opacity flex items-center gap-2"
+          >
+            WhatsApp
+          </a>
+        </div>
       </div>
     </article>
   );
 }
-
-import Link from "next/link";
