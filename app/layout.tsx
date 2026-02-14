@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL('https://uywnix.com'),
   title: {
-    default: "UYWNIX - #1 Global Technology Solutions | AI, Blockchain & Marketing",
+    default: "UYWNIX - AI Automation Agency | Global Tech Solutions",
     template: "%s | UYWNIX"
   },
-  description: "UYWNIX is the global leader in AI Agents, Business Automation, and Digital Marketing. Transforming businesses in India, UAE, USA, and worldwide.",
-  keywords: "AI Agents, Business Automation, Global Technology Solutions, Digital Marketing, Blockchain, Web3, UYWNI Social App, Next Gen Tech",
+  description: "UYWNIX is a premier AI Automation Agency providing AI Sales Agents, AI Voice Employees, and Workflow Automation. Scaling businesses in Dubai, USA, India, and UK with ROI-driven AI solutions.",
+  keywords: "AI Automation Agency, AI Sales Agents, AI Voice Employees, Business Process Automation, Custom AI Solutions, Digital Transformation, AI Chatbots for Business, Dubai AI Agency, USA AI Automation",
   authors: [{ name: "UYWNIX Team" }],
   creator: "UYWNIX",
   publisher: "UYWNIX",

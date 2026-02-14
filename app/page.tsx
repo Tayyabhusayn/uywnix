@@ -68,10 +68,10 @@ export default function Home() {
             System Active: v2.4 Global Infrastructure
           </div>
           <h1 className="text-5xl md:text-8xl font-black tracking-tight mb-8 text-black leading-[0.95] animate-slide-up">
-            Automate your <br/> <span className="text-gray-400">entire business.</span>
+            Global AI <br/> <span className="text-gray-400">Automation Agency.</span>
           </h1>
           <p className="text-lg md:text-2xl text-gray-500 mb-10 max-w-2xl leading-relaxed animate-slide-up delay-100">
-            From tasks and workflows to apps and systems, build and automate anything with our next-generation <b>AI Global Infrastructure</b>.
+            Automate your business operations with <b>UYWNIX</b>. We build AI Sales Agents and Voice Employees that drive 10x ROI and 60% cost reduction for enterprises.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-start animate-slide-up delay-200">
             <Link href="/audit" className="bg-black text-white h-14 px-10 rounded-full flex items-center justify-center font-bold text-lg hover:bg-gray-800 transition shadow-xl hover-lift shimmer">
