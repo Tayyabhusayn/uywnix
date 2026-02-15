@@ -36,6 +36,11 @@ const services = [
     desc: "Dominate your market with AI-driven content generation and ad management. We use advanced data models to optimize your marketing spend and reach global audiences across all social platforms."
   },
   {
+    icon: "🚀",
+    title: "Rapid MVP Development",
+    desc: "Launch your startup in weeks, not months. We build production-ready Minimum Viable Products (MVPs) for founders, combining high-end design with integrated AI capabilities and scalable architecture."
+  },
+  {
     icon: "🔗",
     title: "Custom AI Development",
     desc: "High-performance Next.js and React Native applications with integrated AI backends. We build custom software solutions tailored to your specific business needs and scaling goals."

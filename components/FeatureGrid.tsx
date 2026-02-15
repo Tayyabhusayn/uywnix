@@ -56,8 +56,8 @@ const features = [
   },
   {
     icon: Monitor,
-    title: "IT",
-    desc: "System integrations.",
+    title: "MVP Hub",
+    desc: "Rapid product development.",
     href: "/services",
     color: "text-cyan-500",
     bg: "bg-cyan-50"

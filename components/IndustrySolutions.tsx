@@ -8,7 +8,8 @@ const industries = [
   { name: "Healthcare", icon: "🩺", pitch: "HIPAA-compliant AI for appointment scheduling and patient follow-up." },
   { name: "Finance", icon: "💰", pitch: "Automated invoice processing and AI-driven fraud detection." },
   { name: "Retail", icon: "🛍️", pitch: "Intelligent inventory forecasting and customer support bots." },
-  { name: "Solar", icon: "☀️", pitch: "Lead qualification bots for residential and commercial solar pitches." }
+  { name: "Solar", icon: "☀️", pitch: "Lead qualification bots for residential and commercial solar pitches." },
+  { name: "Startups", icon: "🚀", pitch: "Rapid MVP development with integrated AI to help founders launch in weeks." }
 ];
 
 export default function IndustrySolutions() {
