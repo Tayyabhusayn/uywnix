@@ -22,7 +22,7 @@ const stats = [
 
 export default function TrustBar() {
   return (
-    <section className="relative py-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+    <section className="relative py-16 bg-slate-950 border-t border-white/5 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 grid-bg-subtle opacity-30" />
       
@@ -41,7 +41,7 @@ export default function TrustBar() {
               <div className="text-3xl md:text-4xl font-black gradient-text">
                 {stat.value}
               </div>
-              <div className="text-sm font-medium text-slate-500 mt-1">
+              <div className="text-sm font-medium text-slate-400 mt-1">
                 {stat.label}
               </div>
             </motion.div>
@@ -55,7 +55,7 @@ export default function TrustBar() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-sm font-semibold text-slate-400 uppercase tracking-widest"
+          className="text-sm font-semibold text-slate-500 uppercase tracking-widest"
         >
           Trusted by teams that run on automation
         </motion.p>
@@ -64,19 +64,19 @@ export default function TrustBar() {
       {/* Marquee */}
       <div className="relative">
         {/* Fade Edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-950 to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-950 to-transparent z-10" />
 
         {/* Scrolling Logos */}
         <div className="flex animate-marquee whitespace-nowrap items-center gap-16 py-4">
           {[...logos, ...logos].map((logo, i) => (
             <motion.div
               key={i}
-              className="flex items-center gap-3 px-6 py-3 rounded-xl bg-white/50 border border-slate-100 shadow-sm hover:shadow-md hover:border-slate-200 transition-all duration-300 cursor-default"
+              className="flex items-center gap-3 px-6 py-3 rounded-xl bg-white/5 border border-white/10 shadow-sm hover:shadow-md hover:border-white/20 transition-all duration-300 cursor-default"
               whileHover={{ scale: 1.05 }}
             >
               <logo.icon className="w-5 h-5 text-slate-400" />
-              <span className="text-sm font-bold text-slate-600 tracking-wide">
+              <span className="text-sm font-bold text-slate-300 tracking-wide">
                 {logo.name}
               </span>
             </motion.div>
@@ -94,7 +94,7 @@ export default function TrustBar() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold"
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 text-slate-400 text-xs font-semibold"
             >
               <Shield className="w-3 h-3 text-green-500" />
               {cert}

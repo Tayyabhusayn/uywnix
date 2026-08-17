@@ -22,7 +22,7 @@ const features = [
     desc: "Automate campaigns, personalize content, and scale your reach with AI-powered marketing workflows.",
     href: "/services",
     gradient: "from-orange-500 to-amber-500",
-    bg: "bg-gradient-to-br from-orange-50 to-amber-50"
+    bg: "bg-gradient-to-br from-orange-500/10 to-amber-500/10"
   },
   {
     icon: TrendingUp,
@@ -30,7 +30,7 @@ const features = [
     desc: "Qualify leads 24/7 with intelligent agents that never miss an opportunity.",
     href: "/ai-agent",
     gradient: "from-green-500 to-emerald-500",
-    bg: "bg-gradient-to-br from-green-50 to-emerald-50"
+    bg: "bg-gradient-to-br from-green-500/10 to-emerald-500/10"
   },
   {
     icon: Settings,
@@ -38,7 +38,7 @@ const features = [
     desc: "Streamline workflows, reduce costs, and boost efficiency across your organization.",
     href: "/services",
     gradient: "from-blue-500 to-cyan-500",
-    bg: "bg-gradient-to-br from-blue-50 to-cyan-50"
+    bg: "bg-gradient-to-br from-blue-500/10 to-cyan-500/10"
   },
   {
     icon: Headphones,
@@ -46,7 +46,7 @@ const features = [
     desc: "Deploy AI support agents that resolve issues instantly, any time of day.",
     href: "/contact",
     gradient: "from-purple-500 to-violet-500",
-    bg: "bg-gradient-to-br from-purple-50 to-violet-50"
+    bg: "bg-gradient-to-br from-purple-500/10 to-violet-500/10"
   },
   {
     icon: Wallet,
@@ -54,7 +54,7 @@ const features = [
     desc: "Automate invoice processing, reconciliation, and financial reporting with precision.",
     href: "/services",
     gradient: "from-yellow-500 to-orange-500",
-    bg: "bg-gradient-to-br from-yellow-50 to-orange-50"
+    bg: "bg-gradient-to-br from-yellow-500/10 to-orange-500/10"
   },
   {
     icon: Monitor,
@@ -62,7 +62,7 @@ const features = [
     desc: "From idea to MVP in weeks. Rapid product development powered by AI.",
     href: "/services",
     gradient: "from-cyan-500 to-teal-500",
-    bg: "bg-gradient-to-br from-cyan-50 to-teal-50"
+    bg: "bg-gradient-to-br from-cyan-500/10 to-teal-500/10"
   },
   {
     icon: Users,
@@ -70,7 +70,7 @@ const features = [
     desc: "Transform onboarding, employee support, and talent management with AI.",
     href: "/services",
     gradient: "from-pink-500 to-rose-500",
-    bg: "bg-gradient-to-br from-pink-50 to-rose-50"
+    bg: "bg-gradient-to-br from-pink-500/10 to-rose-500/10"
   },
   {
     icon: Zap,
@@ -78,7 +78,7 @@ const features = [
     desc: "Personal AI assistants that handle the busy work so you can focus on what matters.",
     href: "/services",
     gradient: "from-indigo-500 to-purple-500",
-    bg: "bg-gradient-to-br from-indigo-50 to-purple-50"
+    bg: "bg-gradient-to-br from-indigo-500/10 to-purple-500/10"
   }
 ];
 
@@ -107,7 +107,7 @@ const item = {
 
 export default function FeatureGrid() {
   return (
-    <section className="relative py-32 bg-white overflow-hidden">
+    <section className="relative py-32 bg-slate-950 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 grid-bg-subtle opacity-40" />
       
@@ -122,7 +122,7 @@ export default function FeatureGrid() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-600 text-sm font-semibold mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 text-slate-300 text-sm font-semibold mb-6"
           >
             <Sparkles className="w-4 h-4 text-violet-500" />
             Enterprise Solutions
@@ -133,7 +133,7 @@ export default function FeatureGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="heading-lg text-slate-900 mb-6"
+            className="heading-lg text-white mb-6"
           >
             AI That Works Across
             <br />
@@ -145,7 +145,7 @@ export default function FeatureGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-slate-500 max-w-2xl mx-auto"
+            className="text-lg text-slate-400 max-w-2xl mx-auto"
           >
             Deploy intelligent agents tailored to your industry. 
             From marketing to operations, transform every team with AI.
@@ -164,7 +164,7 @@ export default function FeatureGrid() {
             <motion.div key={i} variants={item}>
               <Link 
                 href={feature.href} 
-                className="group relative block p-8 rounded-3xl bg-white border border-slate-100 hover:border-slate-200 transition-all duration-500 h-full overflow-hidden"
+                className="group relative block p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-violet-400/40 transition-all duration-500 h-full overflow-hidden"
               >
                 {/* Hover gradient overlay */}
                 <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${feature.bg}`} />
@@ -177,17 +177,17 @@ export default function FeatureGrid() {
                   </div>
                   
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-black transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-violet-200 transition-colors">
                     {feature.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-sm text-slate-500 leading-relaxed mb-4">
+                  <p className="text-sm text-slate-400 leading-relaxed mb-4">
                     {feature.desc}
                   </p>
                   
                   {/* Learn more */}
-                  <div className="flex items-center gap-2 text-sm font-semibold text-slate-400 group-hover:text-slate-600 transition-colors">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-slate-400 group-hover:text-slate-200 transition-colors">
                     <span>Learn more</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -207,7 +207,7 @@ export default function FeatureGrid() {
         >
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-slate-900/20 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-slate-900 font-semibold hover:bg-slate-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-violet-500/20 hover:-translate-y-0.5"
           >
             Explore All Solutions
             <ArrowRight className="w-5 h-5" />
