@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import SmartChatbot from "@/components/SmartChatbot";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -105,7 +104,6 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        <SmartChatbot />
       </body>
     </html>
   );
