@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Megaphone, Code2, Globe, Boxes, ArrowRight } from "lucide-react";
+import { Megaphone, Code2, Globe, Boxes, Brain, Bot, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const services = [
@@ -10,6 +10,18 @@ const services = [
     title: "Marketing Automation",
     desc: "AI-powered campaigns that nurture, qualify, and convert leads on autopilot — email, WhatsApp, and ads in one system.",
     features: ["Lead nurturing flows", "AI content & copywriting", "Multi-channel campaigns"],
+  },
+  {
+    icon: Brain,
+    title: "AI Model Training & Fine-Tuning",
+    desc: "Custom AI models trained and fine-tuned on your own data — for small companies and enterprises alike.",
+    features: ["LLM fine-tuning on your data", "Custom model training", "Enterprise deployment"],
+  },
+  {
+    icon: Bot,
+    title: "AI Agents & Chatbots",
+    desc: "Autonomous agents and intelligent chatbots that handle support, sales, and operations around the clock.",
+    features: ["Autonomous AI workforces", "24/7 support chatbots", "Workflow automation"],
   },
   {
     icon: Code2,
@@ -61,7 +73,7 @@ export default function Services() {
         </motion.div>
 
         {/* Service Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
