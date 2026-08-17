@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const plans = [
   {
     name: "Starter",
-    price: "$2,500",
+    price: "$999",
     period: "/month",
     desc: "Perfect for small teams ready to automate lead qualification.",
     features: [
@@ -24,7 +24,7 @@ const plans = [
   },
   {
     name: "Growth",
-    price: "$5,000",
+    price: "$2,499",
     period: "/month",
     desc: "Full-scale automation for growing agencies and firms.",
     features: [
@@ -42,10 +42,11 @@ const plans = [
     name: "Enterprise",
     price: "Custom",
     period: "",
-    desc: "Bespoke AI infrastructure for large organizations.",
+    desc: "Bespoke AI infrastructure, custom model fine-tuning, and dedicated teams for large organizations.",
     features: [
       "Unlimited AI Agents",
-      "Custom LLM Fine-Tuning",
+      "Custom LLM Fine-Tuning on Your Data",
+      "AI Model Training & Deployment",
       "On-Premise Deployment Option",
       "24/7 Elite Support",
       "Full Security Audit & Compliance",
