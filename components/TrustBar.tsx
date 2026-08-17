@@ -4,20 +4,20 @@ import { motion } from "framer-motion";
 import { Star, Shield, Zap, Globe, Award, TrendingUp } from "lucide-react";
 
 const logos = [
-  { name: "Google", icon: Star },
-  { name: "Microsoft", icon: Shield },
-  { name: "Amazon", icon: Zap },
-  { name: "Meta", icon: Globe },
-  { name: "Apple", icon: Award },
-  { name: "Tesla", icon: TrendingUp },
-  { name: "Netflix", icon: Star },
-  { name: "Stripe", icon: Shield },
+  { name: "AI Workflows", icon: Zap },
+  { name: "Automation", icon: TrendingUp },
+  { name: "Chatbots", icon: Star },
+  { name: "Integrations", icon: Globe },
+  { name: "24/7 Operations", icon: Shield },
+  { name: "Voice AI", icon: Award },
+  { name: "Data Pipelines", icon: Zap },
+  { name: "Custom Agents", icon: TrendingUp },
 ];
 
 const stats = [
-  { value: "500+", label: "Enterprise Clients" },
-  { value: "99.9%", label: "Uptime" },
-  { value: "10M+", label: "AI Calls/Day" },
+  { value: "24/7", label: "Autonomous Operation" },
+  { value: "50+", label: "Languages" },
+  { value: "<5 min", label: "Time to Deploy" },
 ];
 
 export default function TrustBar() {
@@ -57,7 +57,7 @@ export default function TrustBar() {
           viewport={{ once: true }}
           className="text-sm font-semibold text-slate-400 uppercase tracking-widest"
         >
-          Trusted by Industry Leaders
+          Trusted by teams that run on automation
         </motion.p>
       </div>
 
@@ -87,7 +87,7 @@ export default function TrustBar() {
       {/* Certifications */}
       <div className="container mx-auto px-6 mt-12">
         <div className="flex flex-wrap justify-center gap-6">
-          {["SOC 2 Type II", "ISO 27001", "GDPR Compliant", "HIPAA Ready"].map((cert, i) => (
+          {["Privacy-first", "Security-first", "GDPR-aligned", "Encrypted by default"].map((cert, i) => (
             <motion.div
               key={cert}
               initial={{ opacity: 0, scale: 0.9 }}

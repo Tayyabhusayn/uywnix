@@ -119,7 +119,7 @@ export default function Hero() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
               </span>
               <span className="text-sm font-semibold text-violet-700">
-                Trusted by 500+ Enterprise Teams
+                Deploy autonomous AI in minutes
               </span>
               <Sparkles className="w-4 h-4 text-violet-500" />
             </motion.div>

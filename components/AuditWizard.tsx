@@ -198,7 +198,7 @@ export default function AuditWizard() {
       
       {/* Social Proof Text */}
       <p className="text-center text-xs font-bold text-slate-400 uppercase tracking-widest mt-8">
-        Trusted by 50+ High-Growth Companies
+        Get your free AI automation audit
       </p>
     </div>
   );
