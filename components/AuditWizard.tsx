@@ -10,9 +10,13 @@ export default function AuditWizard() {
   const [isComplete, setIsComplete] = useState(false);
   const [company, setCompany] = useState("");
   const [sector, setSector] = useState("Real Estate");
+  const [teamSize, setTeamSize] = useState("1-5");
+  const [tools, setTools] = useState("");
   const [bottlenecks, setBottlenecks] = useState<string[]>([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [report, setReport] = useState("");
+  const [reportError, setReportError] = useState(false);
 
   const toggleBottleneck = (item: string) => {
     setBottlenecks((prev) =>
@@ -22,26 +26,34 @@ export default function AuditWizard() {
 
   const finishAudit = async () => {
     setLoading(true);
+    setReportError(false);
+    const payload = { name, email, company, sector, teamSize, tools, bottlenecks, source: "audit-wizard" };
     try {
       await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          company,
-          sector,
-          bottlenecks,
-          source: "audit-wizard",
-        }),
+        body: JSON.stringify(payload),
       });
     } catch {
       // Lead still completes locally even if notification fails
     }
-    setTimeout(() => {
-      setLoading(false);
-      setIsComplete(true);
-    }, 1200);
+    try {
+      const res = await fetch("/api/audit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (data.ok && data.report) {
+        setReport(data.report);
+      } else {
+        setReportError(true);
+      }
+    } catch {
+      setReportError(true);
+    }
+    setLoading(false);
+    setIsComplete(true);
   };
 
   const variants = {
@@ -58,19 +70,49 @@ export default function AuditWizard() {
 
   if (isComplete) {
     return (
-      <div className="max-w-2xl mx-auto text-center p-12 bg-white/5 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
+      <div className="max-w-3xl mx-auto p-8 md:p-12 bg-white/5 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-emerald-600" />
-        <div className="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6 text-green-400 animate-bounce">
-          <Check className="w-10 h-10" />
-        </div>
-        <h2 className="text-3xl font-black text-white mb-4">Analysis Complete</h2>
-        <p className="text-slate-400 mb-8 text-lg">
-          Our AI models have identified 3 key automation opportunities for your business. An expert strategist will contact you shortly with your personalized{" "}
-          <span className="font-bold text-white">Intelligence Report</span>.
-        </p>
-        <button onClick={() => (window.location.href = "/")} className="text-sm font-bold text-slate-400 hover:text-white transition uppercase tracking-widest">
-          Return to Dashboard
-        </button>
+        {report ? (
+          <div>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-14 h-14 bg-green-500/10 rounded-full flex items-center justify-center text-green-400 shrink-0">
+                <Check className="w-7 h-7" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-black text-white">Your AI Report is Ready</h2>
+                <p className="text-slate-400 text-sm mt-1">
+                  Generated live by our AI engine from your answers — a strategist will follow up by email.
+                </p>
+              </div>
+            </div>
+            <div className="max-h-[420px] overflow-y-auto pr-4 rounded-2xl bg-slate-950/60 border border-white/10 p-6 text-slate-300 text-sm leading-relaxed whitespace-pre-wrap">
+              {report}
+            </div>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-between items-center">
+              <button onClick={() => (window.location.href = "/contact")} className="bg-white text-slate-900 px-6 py-3 rounded-full font-bold hover:bg-slate-100 transition">
+                Discuss Your Report
+              </button>
+              <button onClick={() => (window.location.href = "/")} className="text-sm font-bold text-slate-400 hover:text-white transition uppercase tracking-widest">
+                Return to Dashboard
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="text-center p-12">
+            <div className="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6 text-green-400 animate-bounce">
+              <Check className="w-10 h-10" />
+            </div>
+            <h2 className="text-3xl font-black text-white mb-4">Analysis Complete</h2>
+            <p className="text-slate-400 mb-8 text-lg">
+              {reportError
+                ? "Our AI engine is warming up — your details were received and a strategist will contact you shortly."
+                : "Our AI models have identified 3 key automation opportunities for your business. An expert strategist will contact you shortly with your personalized Intelligence Report."}
+            </p>
+            <button onClick={() => (window.location.href = "/")} className="text-sm font-bold text-slate-400 hover:text-white transition uppercase tracking-widest">
+              Return to Dashboard
+            </button>
+          </div>
+        )}
       </div>
     );
   }
@@ -129,6 +171,15 @@ export default function AuditWizard() {
                     <option className="bg-slate-900">Other</option>
                   </select>
                 </div>
+                <div>
+                  <label className={labelCls}>Team Size</label>
+                  <select value={teamSize} onChange={(e) => setTeamSize(e.target.value)} className={inputCls + " appearance-none"}>
+                    <option className="bg-slate-900">1-5</option>
+                    <option className="bg-slate-900">6-20</option>
+                    <option className="bg-slate-900">21-100</option>
+                    <option className="bg-slate-900">100+</option>
+                  </select>
+                </div>
               </div>
 
               <div className="mt-10 flex justify-end">
@@ -153,6 +204,17 @@ export default function AuditWizard() {
               </div>
               <h2 className="text-3xl font-bold text-white mb-2">Operational Bottlenecks</h2>
               <p className="text-slate-400 mb-8">Where is your team spending the most manual hours?</p>
+
+              <div className="mb-6">
+                <label className={labelCls}>Current Tools & Software</label>
+                <input
+                  type="text"
+                  value={tools}
+                  onChange={(e) => setTools(e.target.value)}
+                  className={inputCls}
+                  placeholder="e.g. Excel, Salesforce, WhatsApp, Zoho…"
+                />
+              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {["Lead Qualification", "Customer Support", "Data Entry", "Appointment Setting", "Document Review", "Outbound Sales"].map((item) => {
