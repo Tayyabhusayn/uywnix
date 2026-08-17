@@ -2,26 +2,15 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Play,
-  Sparkles,
-  ChevronDown,
-  Globe,
-  Presentation,
-  Palette,
-  Gamepad2,
-  Plus,
-  Bot,
-  Zap,
-} from "lucide-react";
+import { ArrowUp, Sparkles, ChevronDown, Bot, Zap, Globe, Presentation, Palette, Gamepad2, Plus } from "lucide-react";
+import { useState } from "react";
 
-const tasks = [
-  { icon: Globe, label: "Build website", href: "/services", gradient: "from-violet-500 to-indigo-600" },
-  { icon: Presentation, label: "Create slides", href: "/services", gradient: "from-cyan-500 to-blue-600" },
-  { icon: Palette, label: "Design", href: "/services", gradient: "from-pink-500 to-rose-600" },
-  { icon: Gamepad2, label: "Create games", href: "/ai-agent", gradient: "from-amber-500 to-orange-600" },
-  { icon: Plus, label: "More", href: "/contact", gradient: "from-slate-500 to-slate-700" },
+const suggestions = [
+  { icon: Globe, label: "Build website", href: "/services" },
+  { icon: Presentation, label: "Create slides", href: "/services" },
+  { icon: Palette, label: "Design", href: "/services" },
+  { icon: Gamepad2, label: "Create games", href: "/ai-agent" },
+  { icon: Plus, label: "More", href: "/contact" },
 ];
 
 const stats = [
@@ -32,13 +21,14 @@ const stats = [
 ];
 
 export default function Hero() {
+  const [prompt, setPrompt] = useState("");
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-slate-950 flex items-center">
       {/* Ambient background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[-25%] left-1/2 -translate-x-1/2 w-[900px] h-[520px] bg-violet-600/15 blur-[140px] rounded-full" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[480px] bg-cyan-500/10 blur-[120px] rounded-full" />
-        <div className="absolute top-[30%] left-[-10%] w-[500px] h-[400px] bg-indigo-600/10 blur-[110px] rounded-full" />
         <div className="absolute inset-0 grid-bg-subtle opacity-20" />
       </div>
 
@@ -60,7 +50,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 py-32">
+      <div className="container mx-auto px-6 relative z-10 py-32 max-w-4xl">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -89,58 +79,62 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto text-center leading-relaxed"
+          className="text-base md:text-lg text-slate-400 mb-10 text-center leading-relaxed"
         >
-          Autonomous AI agents, marketing automation, and full builds — websites,
-          software, prototypes, and games. Tell us the goal, we ship it.
+          Tell UYWNIX what you need — a website, app, prototype, or automation —
+          and we'll build it for you.
         </motion.p>
 
-        {/* Task cards */}
+        {/* ChatGPT-style input */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto mb-16"
+          className="mb-6"
         >
-          {tasks.map((task, i) => (
-            <motion.div key={task.label} whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
-              <Link
-                href={task.href}
-                className="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-violet-400/50 hover:bg-white/[0.07] transition-all duration-300"
-              >
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${task.gradient} flex items-center justify-center shadow-lg`}>
-                  <task.icon className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">
-                  {task.label}
-                </span>
-                <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-violet-400 group-hover:translate-x-1 transition-all" />
-              </Link>
-            </motion.div>
-          ))}
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              window.location.href = prompt.trim()
+                ? `/audit?goal=${encodeURIComponent(prompt.trim())}`
+                : "/audit";
+            }}
+            className="flex items-center gap-3 rounded-3xl bg-white/[0.06] border border-white/15 focus-within:border-violet-400/60 focus-within:bg-white/[0.08] transition-all duration-300 p-2.5 pl-6 shadow-2xl shadow-violet-500/5"
+          >
+            <input
+              type="text"
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              placeholder="Message UYWNIX… e.g. “Build me a landing page”"
+              className="flex-1 bg-transparent text-white placeholder:text-slate-500 text-base outline-none py-2"
+            />
+            <button
+              type="submit"
+              aria-label="Send"
+              className="shrink-0 w-11 h-11 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center hover:opacity-90 active:scale-95 transition-all"
+            >
+              <ArrowUp className="w-5 h-5 text-white" />
+            </button>
+          </form>
         </motion.div>
 
-        {/* CTAs */}
+        {/* Suggestion chips */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex flex-wrap justify-center gap-3 mb-16"
         >
-          <Link
-            href="/audit"
-            className="group inline-flex items-center gap-2 bg-white text-slate-900 h-13 px-8 py-3.5 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-violet-500/20 hover:-translate-y-0.5"
-          >
-            Start Building
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link
-            href="/ai-agent"
-            className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-lg text-slate-200 border border-white/15 bg-white/5 hover:bg-white/10 hover:border-white/25 transition-all duration-300"
-          >
-            <Play className="w-5 h-5 text-violet-400" />
-            Watch Demo
-          </Link>
+          {suggestions.map((s) => (
+            <Link
+              key={s.label}
+              href={s.href}
+              className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.05] border border-white/10 hover:border-violet-400/50 hover:bg-white/[0.09] text-sm font-medium text-slate-300 hover:text-white transition-all duration-300"
+            >
+              <s.icon className="w-4 h-4 text-violet-400" />
+              {s.label}
+            </Link>
+          ))}
         </motion.div>
 
         {/* Stats */}
@@ -148,7 +142,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/10 max-w-4xl mx-auto"
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/10"
         >
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
