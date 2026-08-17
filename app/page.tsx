@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
 import Services from "@/components/Services";
 import FeatureGrid from "@/components/FeatureGrid";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -13,7 +12,6 @@ export default function Home() {
       <TrustBar />
       <Services />
       <FeatureGrid />
-      <Footer />
     </main>
   );
 }
