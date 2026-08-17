@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://uywnix.com';
+  const baseUrl = 'https://www.uywnix.com';
   const postsDirectory = path.join(process.cwd(), 'content/posts');
   
   let postUrls: MetadataRoute.Sitemap = [];
