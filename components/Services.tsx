@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Megaphone, Code2, Globe, Boxes, Brain, Bot, ArrowRight } from "lucide-react";
+import { Megaphone, Code2, Boxes, Brain, Bot, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const services = [
@@ -28,12 +28,6 @@ const services = [
     title: "Software Development",
     desc: "Custom web and mobile software, built fast with AI-augmented engineering — and maintained properly after launch.",
     features: ["Custom SaaS builds", "APIs & integrations", "AI features embedded"],
-  },
-  {
-    icon: Globe,
-    title: "Website Development",
-    desc: "High-converting, blazing-fast websites that look premium and rank on Google from day one.",
-    features: ["Conversion landing pages", "SEO-ready builds", "CMS & e-commerce"],
   },
   {
     icon: Boxes,

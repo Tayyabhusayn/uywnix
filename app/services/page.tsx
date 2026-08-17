@@ -1,9 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best AI Automation Services | AI Sales Agents & Voice Employees",
-  description: "UYWNIX provides the world's best AI Automation services. We deploy AI Sales Agents, AI Voice Employees, and Custom Workflow Automation to scale businesses in Dubai, USA, and UK. Get 10x ROI with our expert AI agency.",
-  keywords: "Best AI Automation Services, AI Sales Agency, Deploy AI Sales Agents, AI Voice Employee for Business, Lead Qualification Automation, CRM Workflow Integration, High-Ticket AI Solutions",
+  title: "Services - Websites, Software, AI Automation & Model Training",
+  description: "UYWNIX delivers marketing automation, AI model training and fine-tuning, AI agents, software development, websites, and prototypes. One team, every build.",
   alternates: {
     canonical: '/services',
   },
@@ -11,39 +10,29 @@ export const metadata: Metadata = {
 
 const services = [
   {
+    icon: "📣",
+    title: "Marketing Automation",
+    desc: "AI-powered campaigns that nurture, qualify, and convert leads on autopilot — email, WhatsApp, and ads in one system."
+  },
+  {
+    icon: "🧠",
+    title: "AI Model Training & Fine-Tuning",
+    desc: "Custom AI models trained and fine-tuned on your own data — for small companies and enterprises alike, with secure deployment options."
+  },
+  {
     icon: "🤖",
-    title: "AI Sales Agents",
-    desc: "The best AI Sales Agents for lead qualification. Our autonomous bots handle cold outreach, qualify prospects 24/7, and book high-ticket meetings directly into your calendar with 100% accuracy."
+    title: "AI Agents & Chatbots",
+    desc: "Autonomous agents and intelligent chatbots that handle support, sales, and operations around the clock."
   },
   {
-    icon: "📞",
-    title: "AI Voice Employees",
-    desc: "Hire human-like AI Voice Employees for your business. Perfect for inbound support, appointment setting, and customer follow-ups. Our voice bots sound natural and handle complex logic flawlessly."
+    icon: "💻",
+    title: "Software Development",
+    desc: "Custom web and mobile software, built fast with AI-augmented engineering — and maintained properly after launch."
   },
   {
-    icon: "⚙️",
-    title: "Workflow Automation",
-    desc: "End-to-end business process automation. We build invisible pipelines connecting your CRM, Email, and internal tools to eliminate manual work and save your team 20+ hours every week."
-  },
-  {
-    icon: "🛡️",
-    title: "Enterprise Cybersecurity",
-    desc: "Elite security audits and threat detection for automated infrastructures. We ensure your AI systems and customer data are protected by enterprise-grade encryption and HIPAA/GDPR compliance."
-  },
-  {
-    icon: "📈",
-    title: "AI Marketing Scale",
-    desc: "Dominate your market with AI-driven content generation and ad management. We use advanced data models to optimize your marketing spend and reach global audiences across all social platforms."
-  },
-  {
-    icon: "🚀",
-    title: "Rapid MVP Development",
-    desc: "Launch your startup in weeks, not months. We build production-ready Minimum Viable Products (MVPs) for founders, combining high-end design with integrated AI capabilities and scalable architecture."
-  },
-  {
-    icon: "🔗",
-    title: "Custom AI Development",
-    desc: "High-performance Next.js and React Native applications with integrated AI backends. We build custom software solutions tailored to your specific business needs and scaling goals."
+    icon: "📦",
+    title: "Prototype Building",
+    desc: "Turn your idea into a clickable prototype in days — test it with real users before spending on a full build."
   }
 ];
 
@@ -90,26 +79,26 @@ export default function ServicesPage() {
               "mainEntity": [
                 {
                   "@type": "Question",
-                  "name": "What is an AI Sales Agent?",
+                  "name": "What services does UYWNIX provide?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "An AI Sales Agent is an autonomous system designed to qualify leads, handle customer objections, and book meetings 24/7 without human intervention."
+                    "text": "UYWNIX provides marketing automation, AI model training and fine-tuning on your own data, AI agents and chatbots, software development, website development, and prototype building."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "How much can I save with AI Automation?",
+                  "name": "How much do UYWNIX services cost?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Businesses typically see a 60% reduction in operational costs and a 10x return on investment (ROI) within the first 6 months of deployment."
+                    "text": "Automation plans start at $999 per month. Websites and landing pages start at $499 with launch offers. Enterprise model training and custom builds are quoted per project."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "Are AI Voice Employees compliant?",
+                  "name": "Can UYWNIX train AI models on our data?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, our AI Voice Employees are built with HIPAA and GDPR compliance in mind, ensuring secure and private data handling."
+                    "text": "Yes. UYWNIX trains and fine-tunes custom AI models on your own data for small companies and enterprises, including secure and on-premise deployment options."
                   }
                 }
               ]
