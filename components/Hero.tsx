@@ -187,7 +187,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-slate-100"
             >
-              <StatItem value="10M+" label="AI Calls Daily" delay={0.5} />
+              <StatItem value="<5 min" label="Time to Deploy" delay={0.5} />
               <StatItem value="99.9%" label="Uptime SLA" delay={0.6} />
               <StatItem value="50+" label="Languages" delay={0.7} />
               <StatItem value="24/7" label="Global Support" delay={0.8} />
