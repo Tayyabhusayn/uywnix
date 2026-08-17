@@ -2,6 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "AI Agent - Chat with UYWNIX Business Agent",
+  description: "Talk to our AI business agent - get instant answers on automation, AI agents, pricing, and how to automate your workflows.",
+};
 
 export default function AiAgentPage() {
   const [messages, setMessages] = useState<{ role: "user" | "agent"; content: string }[]>([
