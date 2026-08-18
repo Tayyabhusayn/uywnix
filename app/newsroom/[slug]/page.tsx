@@ -1,6 +1,7 @@
 import { getPostData, getSortedPostsData } from "@/lib/posts";
 import { Metadata } from "next";
 import Link from "next/link";
+import ShareRow from "@/components/ShareRow";
 
 // Force static generation for Vercel
 export const dynamicParams = false;
@@ -53,7 +54,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
   const shareUrl = encodeURIComponent(articleUrl);
 
   return (
-    <article className="min-h-screen bg-white text-slate-900 flex flex-col">
+    <article className="min-h-screen bg-slate-950 text-white flex flex-col">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -83,48 +84,33 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
       
       <main className="flex-1 container mx-auto px-4 py-12 md:py-24 max-w-3xl">
         <div className="mb-12">
-          <Link href="/newsroom" className="inline-flex items-center text-sm font-bold text-slate-400 hover:text-slate-900 mb-6 transition-colors group">
+          <Link href="/newsroom" className="inline-flex items-center text-sm font-bold text-slate-400 hover:text-white mb-6 transition-colors group">
             <span className="mr-2 group-hover:-translate-x-1 transition-transform">←</span> Back to Newsroom
           </Link>
-          <div className="flex items-center gap-3 text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">
+          <div className="flex items-center gap-3 text-xs font-bold text-violet-400 uppercase tracking-widest mb-4">
             <span>{post.category}</span>
-            <span className="text-slate-300">•</span>
-            <span className="text-slate-400">{post.date}</span>
+            <span className="text-slate-600">•</span>
+            <span className="text-slate-500">{post.date}</span>
+            <span className="text-slate-600">•</span>
+            <span className="text-slate-500">{Math.ceil(post.content.split(" ").length / 200)} min read</span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-black tracking-tight leading-tight text-slate-900 mb-8">{post.title}</h1>
+          <h1 className="text-3xl md:text-5xl font-black tracking-tight leading-tight text-white mb-8">{post.title}</h1>
         </div>
 
-        <div className="prose prose-lg prose-slate max-w-none mb-20 prose-headings:font-bold prose-headings:tracking-tight prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl prose-img:shadow-lg">
+        <div className="prose prose-lg prose-slate prose-invert max-w-none mb-20 prose-headings:font-bold prose-headings:tracking-tight prose-a:text-violet-400 prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl prose-img:shadow-lg prose-blockquote:border-violet-400">
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
 
-        <div className="border-t border-slate-100 pt-12">
-          <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6 text-center">Share this insight</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a 
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-[#0077b5] text-white rounded-full font-bold text-sm hover:opacity-90 transition-opacity flex items-center gap-2 shadow-md hover:shadow-lg hover:-translate-y-0.5 transform transition-all"
+        <div className="border-t border-white/10 pt-12">
+          <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6 text-center">Share this insight</p>
+          <ShareRow url={articleUrl} title={post.title} />
+          <div className="text-center mt-12">
+            <Link
+              href="/audit"
+              className="inline-flex items-center gap-2 bg-white text-slate-900 px-8 py-3.5 rounded-full font-bold hover:bg-slate-100 transition"
             >
-              LinkedIn
-            </a>
-            <a 
-              href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${articleTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-black text-white rounded-full font-bold text-sm hover:opacity-90 transition-opacity flex items-center gap-2 shadow-md hover:shadow-lg hover:-translate-y-0.5 transform transition-all"
-            >
-              X / Twitter
-            </a>
-            <a 
-              href={`https://api.whatsapp.com/send?text=${articleTitle}%20${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-[#25D366] text-white rounded-full font-bold text-sm hover:opacity-90 transition-opacity flex items-center gap-2 shadow-md hover:shadow-lg hover:-translate-y-0.5 transform transition-all"
-            >
-              WhatsApp
-            </a>
+              Get Your Free AI Audit →
+            </Link>
           </div>
         </div>
       </main>
