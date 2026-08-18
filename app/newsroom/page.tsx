@@ -3,8 +3,8 @@ import { Metadata } from "next";
 import { getSortedPostsData } from "@/lib/posts";
 
 export const metadata: Metadata = {
-  title: "Newsroom | Latest in AI, Automation & Tech Trends",
-  description: "Stay updated with the latest insights on AI Agents, Business Automation, and Global Technology trends from the UYWNIX Newsroom.",
+  title: "Newsroom | AI Automation Insights for Business",
+  description: "Practical guides on AI model fine-tuning, AI agents for customer support, and AI-accelerated product development — from the UYWNIX team.",
   alternates: {
     canonical: '/newsroom',
   },
