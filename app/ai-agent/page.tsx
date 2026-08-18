@@ -2,19 +2,34 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { Bot, ArrowUp, Sparkles, Zap, MessageSquare, Workflow, ShieldCheck } from "lucide-react";
+
+const suggestions = [
+  "Automate my lead follow-ups",
+  "Write a customer support reply",
+  "What can AI agents automate in my business?",
+  "Build me a demo chatbot",
+];
+
+const capabilities = [
+  { icon: MessageSquare, title: "Sales & Support Agents", desc: "Agents that qualify leads, answer customers, and work 24/7." },
+  { icon: Workflow, title: "Workflow Automation", desc: "Connect your tools — CRM, email, WhatsApp — into one pipeline." },
+  { icon: Sparkles, title: "Content Generation", desc: "Emails, posts, product copy — generated in your brand voice." },
+  { icon: ShieldCheck, title: "Enterprise Safety", desc: "Guardrails, logging, and human handoff built in." },
+];
 
 export default function AiAgentPage() {
   const [messages, setMessages] = useState<{ role: "user" | "agent"; content: string }[]>([
-    { role: "agent", content: "Hello! I am the UYWNIX Business Agent. How can I help automate your workflows today?" }
+    { role: "agent", content: "Hello! I am the UYWNIX Business Agent. Ask me anything about automating your workflows — or tap a suggestion below. 🤖" }
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
 
-  const handleSend = async () => {
-    if (!input.trim()) return;
+  const handleSend = async (text?: string) => {
+    const msg = (text ?? input).trim();
+    if (!msg) return;
 
-    const userMsg = input;
-    setMessages((prev) => [...prev, { role: "user", content: userMsg }]);
+    setMessages((prev) => [...prev, { role: "user", content: msg }]);
     setInput("");
     setIsTyping(true);
 
@@ -22,133 +37,145 @@ export default function AiAgentPage() {
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: userMsg }),
+        body: JSON.stringify({ message: msg }),
       });
-
       if (!response.ok) throw new Error("API Error");
-
       const data = await response.json();
       setMessages((prev) => [...prev, { role: "agent", content: data.reply }]);
     } catch (error) {
       console.error("Chat Error:", error);
-      setMessages((prev) => [...prev, { role: "agent", content: "I am experiencing high traffic. Please try again later or book a demo." }]);
+      setMessages((prev) => [...prev, { role: "agent", content: "I am experiencing high traffic. Please try again later — or book a free audit and a human will get back to you within 24 hours." }]);
     } finally {
       setIsTyping(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <nav className="w-full border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
+    <div className="min-h-screen bg-slate-950 text-white">
+      <nav className="w-full border-b border-white/10 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
         <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold tracking-tighter">
+          <Link href="/" className="text-2xl font-black tracking-tighter text-white">
             UYWNIX
           </Link>
-          <Link href="/" className="text-sm font-medium hover:text-primary/80">Back to Home</Link>
+          <Link href="/" className="text-sm font-medium text-slate-400 hover:text-white">
+            Back to Home
+          </Link>
         </div>
       </nav>
 
-      <section className="py-12 md:py-24 container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-5xl font-bold tracking-tight mb-6">Customer Agent for Business</h1>
-          <p className="text-xl text-muted-foreground">
-            Experience the power of autonomous business automation. Try our demo agent below.
+      <section className="py-12 md:py-20 container mx-auto px-4 relative overflow-hidden">
+        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-violet-600/15 blur-[130px] rounded-full pointer-events-none" />
+        <div className="relative max-w-4xl mx-auto text-center mb-14">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-400/30 text-violet-300 text-xs font-bold uppercase tracking-widest mb-6">
+            <Bot className="w-4 h-4" /> AI Business Agent
+          </span>
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
+            Your business, <span className="gradient-text">working 24/7.</span>
+          </h1>
+          <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto">
+            Try the demo agent below — this is the same technology we deploy for clients: sales agents, support agents, and full workflow automation.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* Interactive Chat Demo */}
-          <div className="bg-card border border-border rounded-2xl p-6 shadow-xl min-h-[500px] flex flex-col relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-            <div className="border-b border-border pb-4 mb-4 flex items-center gap-3">
-              <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-              <span className="font-semibold text-sm">UYWNIX Auto-Agent (Demo)</span>
+        <div className="max-w-2xl mx-auto">
+          {/* Chat window */}
+          <div className="bg-white/[0.04] border border-white/10 rounded-3xl shadow-2xl overflow-hidden">
+            <div className="px-6 py-4 border-b border-white/10 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
+                <Bot className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <p className="font-bold text-sm text-white">UYWNIX Auto-Agent</p>
+                <p className="text-xs text-green-400 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" /> Online
+                </p>
+              </div>
             </div>
-            
-            <div className="flex-1 space-y-4 overflow-y-auto mb-4 pr-2 max-h-[400px]">
-              {messages.map((msg, idx) => (
-                <div key={idx} className={`flex gap-3 ${msg.role === "user" ? "justify-end" : ""}`}>
-                  <div className={`p-3 rounded-2xl text-sm max-w-[85%] ${
-                    msg.role === "user" 
-                      ? "bg-primary text-primary-foreground rounded-tr-none" 
-                      : "bg-secondary text-secondary-foreground rounded-tl-none"
-                  }`}>
-                    {msg.content}
+
+            <div className="p-6 space-y-4 h-[380px] overflow-y-auto">
+              {messages.map((m, i) => (
+                <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
+                  <div
+                    className={`max-w-[85%] px-4 py-3 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap ${
+                      m.role === "user"
+                        ? "bg-white text-slate-900 rounded-br-md"
+                        : "bg-violet-500/10 border border-violet-400/20 text-slate-200 rounded-bl-md"
+                    }`}
+                  >
+                    {m.content}
                   </div>
                 </div>
               ))}
               {isTyping && (
-                <div className="flex gap-3">
-                  <div className="bg-secondary p-3 rounded-2xl rounded-tl-none text-sm w-16 flex items-center justify-center">
-                    <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100"></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200"></div>
-                    </div>
+                <div className="flex justify-start">
+                  <div className="px-4 py-3 rounded-2xl bg-violet-500/10 border border-violet-400/20 rounded-bl-md text-sm text-slate-400">
+                    <span className="inline-flex gap-1">
+                      <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" />
+                      <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:0.15s]" />
+                      <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:0.3s]" />
+                    </span>
                   </div>
                 </div>
               )}
             </div>
 
-            <div className="mt-auto pt-4 border-t border-border flex gap-2">
-              <input 
-                type="text" 
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSend()}
-                placeholder="Ask about automation..."
-                className="flex-1 bg-secondary/50 border-0 rounded-full px-4 py-2 text-sm focus:ring-1 focus:ring-primary outline-none"
-              />
-              <button 
-                onClick={handleSend}
-                className="bg-primary text-primary-foreground p-2 rounded-full hover:opacity-90 transition-opacity"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-              </button>
+            <div className="px-6 py-4 border-t border-white/10 bg-slate-950/50">
+              <div className="flex gap-2 mb-3 overflow-x-auto pb-1">
+                {suggestions.map((s) => (
+                  <button
+                    key={s}
+                    onClick={() => handleSend(s)}
+                    className="shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300 hover:bg-violet-500/10 hover:border-violet-400/30 hover:text-white transition"
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+              <div className="flex gap-3">
+                <input
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSend()}
+                  placeholder="Ask about automation..."
+                  className="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-violet-400/50"
+                />
+                <button
+                  onClick={() => handleSend()}
+                  className="w-12 h-12 rounded-full bg-white text-slate-900 flex items-center justify-center hover:bg-slate-100 transition shrink-0"
+                >
+                  <ArrowUp className="w-5 h-5" />
+                </button>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="flex flex-col justify-center space-y-8">
-            <div className="p-6 bg-secondary/20 rounded-xl border border-border/50">
-              <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
-                <span>🚀</span> Total Business Automation
-              </h3>
-              <p className="text-muted-foreground text-sm">
-                We don't just build chatbots. We build full-stack agents that integrate with your database, CRM, and ERP to perform complex tasks autonomously.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div className="p-4 bg-card border border-border rounded-xl">
-                <h4 className="font-bold text-lg mb-1">24/7</h4>
-                <p className="text-xs text-muted-foreground">Active Uptime</p>
+      <section className="py-20 bg-slate-900/50 border-t border-white/5">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+              What we <span className="gradient-text">build</span>
+            </h2>
+            <p className="text-slate-400 max-w-xl mx-auto">
+              That demo is one agent. We deploy whole teams of them.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
+            {capabilities.map((c) => (
+              <div key={c.title} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-violet-400/40 transition">
+                <div className="w-11 h-11 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 mb-4">
+                  <c.icon className="w-5 h-5" />
+                </div>
+                <h3 className="font-bold text-white mb-2 text-sm">{c.title}</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">{c.desc}</p>
               </div>
-              <div className="p-4 bg-card border border-border rounded-xl">
-                <h4 className="font-bold text-lg mb-1">0.1s</h4>
-                <p className="text-xs text-muted-foreground">Response Time</p>
-              </div>
-              <div className="p-4 bg-card border border-border rounded-xl">
-                <h4 className="font-bold text-lg mb-1">100+</h4>
-                <p className="text-xs text-muted-foreground">Integrations</p>
-              </div>
-              <div className="p-4 bg-card border border-border rounded-xl">
-                <h4 className="font-bold text-lg mb-1">60%</h4>
-                <p className="text-xs text-muted-foreground">Cost Reduction</p>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-bold mb-2">Voice Capable</h3>
-              <p className="text-muted-foreground">Our agents can handle inbound phone calls with human-like voice synthesis.</p>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold mb-2">Seamless Integration</h3>
-              <p className="text-muted-foreground">Connects with your CRM, Email, and Slack.</p>
-            </div>
-
-            <button className="w-full bg-primary text-primary-foreground py-4 rounded-xl font-bold text-lg hover:scale-[1.02] transition-transform">
-              Deploy Your Agent Now
-            </button>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link href="/audit" className="inline-flex items-center gap-2 bg-white text-slate-900 px-8 py-3.5 rounded-full font-bold hover:bg-slate-100 transition">
+              <Zap className="w-4 h-4" /> Get Your Free Audit
+            </Link>
           </div>
         </div>
       </section>
