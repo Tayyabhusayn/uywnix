@@ -6,6 +6,7 @@ import { Sparkles, Github, Twitter, Linkedin, Instagram, ArrowUpRight } from "lu
 
 const navLinks = [
   { label: "Services", href: "/services" },
+  { label: "UYWNI App", href: "/products/uywni" },
   { label: "AI Agent", href: "/ai-agent" },
   { label: "Pricing", href: "/pricing" },
   { label: "Free Audit", href: "/audit" },

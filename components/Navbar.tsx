@@ -6,6 +6,7 @@ import { Menu, X, Sparkles, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
+  { href: "/products/uywni", label: "UYWNI App" },
   { href: "/services", label: "Solutions" },
   { href: "/pricing", label: "Pricing" },
   { href: "/newsroom", label: "Resources" },
