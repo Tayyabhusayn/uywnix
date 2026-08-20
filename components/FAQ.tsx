@@ -6,8 +6,8 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    q: "What does an AI automation agency do?",
-    a: "An AI automation agency builds AI agents, chatbots, and automated workflows that handle sales, support, marketing, and operations for businesses — so teams focus on work that matters. UYWNIX designs, builds, and maintains these systems end to end.",
+    q: "What does an AI automation company do?",
+    a: "An AI automation company builds AI agents, chatbots, and automated workflows that handle sales, support, marketing, and operations for businesses — so teams focus on work that matters. UYWNIX designs, builds, and maintains these systems end to end.",
   },
   {
     q: "How much do AI automation services cost?",

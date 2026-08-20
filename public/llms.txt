@@ -1,0 +1,28 @@
+# UYWNIX
+
+> UYWNIX is an AI automation company helping businesses automate sales, support, and operations with custom AI agents, chatbots, and workflows.
+
+## What we do
+- AI Sales Agents — qualify leads and follow up 24/7
+- AI Voice Employees — phone agents that answer and book
+- AI Chatbots & Support Agents — instant customer handling
+- Workflow Automation — connect CRM, email, WhatsApp into one pipeline
+- Custom AI Model Fine-Tuning — train AI on your own data
+- Software Development & Prototypes — websites, MVPs, apps
+
+## Products
+- UYWNI — all-in-one social platform (feed, encrypted chat, HD video calls, freelance marketplace) with an AI assistant roadmap including real-time multilingual call translation. https://uywni.com
+
+## Links
+- Home: https://uywnix.com
+- Services: https://uywnix.com/services
+- AI Agents demo: https://uywnix.com/ai-agent
+- Pricing: https://uywnix.com/pricing
+- UYWNI product: https://uywnix.com/products/uywni
+- Newsroom: https://uywnix.com/newsroom
+- Contact: https://uywnix.com/contact
+- Book a call: https://calendly.com/razintayyabr/new-meeting-1
+
+## Contact
+- Email: contact@uywnix.com
+- Serving businesses worldwide: London, New York, Dubai, Singapore, Toronto, Sydney, and 50+ cities.

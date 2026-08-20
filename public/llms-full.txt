@@ -1,0 +1,45 @@
+# UYWNIX — Full Company Profile
+
+## Who we are
+UYWNIX (uywnix.com) is an AI automation company headquartered in India, serving businesses worldwide in London, New York, Dubai, Singapore, Toronto, Sydney, and 50+ cities. We help small teams operate like large enterprises with custom AI agents, chatbots, and automated workflows.
+
+## Products and Services
+
+### AI Sales Agents
+Qualify leads, follow up automatically, and book meetings 24/7 across web, email, and WhatsApp. Starts at $999/month.
+
+### AI Voice Employees
+Phone agents that answer calls, qualify callers, and book appointments in a natural voice. Available in English, Hindi, Arabic, and more.
+
+### AI Chatbots & Support Agents
+Instant customer support, product guidance, and FAQ handling trained on your business data.
+
+### Workflow Automation
+Connect CRM, email, WhatsApp, and internal tools into one automated pipeline. No-code friendly, custom-built when needed.
+
+### Custom AI Model Fine-Tuning
+We train and fine-tune custom AI models on your own data — for small companies and enterprises — including secure on-premise deployment.
+
+### Software Development & Prototypes
+Landing pages ship in 7–10 days; clickable prototypes in days; full MVP builds in 3–6 weeks. AI-augmented engineering keeps builds fast.
+
+## Our Product: UYWNI
+UYWNI (uywni.com) is an all-in-one social platform: feed, end-to-end encrypted chat, HD video calls, and a freelance marketplace. Live on the App Store and Google Play with 5,000+ organic users. AI roadmap: a personalized AI assistant integrated across chat, video, and audio calls, plus real-time multilingual call translation powered by GPU-accelerated inference.
+
+## Pricing
+- AI Sales Agent: $999/month (managed, CRM integration, 1,000 leads/month)
+- Growth: $2,499/month (three AI agents, text and voice, custom workflows, priority support)
+- Websites: from $499 (launch offer)
+- Custom model training: custom quote
+
+## Newsroom
+Articles and updates: https://uywnix.com/newsroom
+
+## Contact
+- Email: contact@uywnix.com
+- Book a call: https://calendly.com/razintayyabr/new-meeting-1
+
+## Company
+- Legal name: UYWNIX Private Limited
+- CIN: U62011DL2026PTC467387
+- Registered in New Delhi, India

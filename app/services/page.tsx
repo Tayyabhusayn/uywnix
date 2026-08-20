@@ -47,13 +47,13 @@ export default function ServicesPage() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Service",
-              "serviceType": "AI Automation Agency",
+              "serviceType": "AI Automation Company",
               "provider": {
                 "@type": "Organization",
                 "name": "UYWNIX",
                 "url": "https://uywnix.com"
               },
-              "areaServed": ["World", "Dubai", "USA", "India"],
+              "areaServed": ["Worldwide", "London", "New York", "Dubai", "Singapore", "Toronto", "Sydney", "Berlin", "Paris", "Amsterdam", "San Francisco", "Los Angeles", "Mumbai", "Bengaluru", "Delhi", "Karachi", "Dhaka", "Riyadh", "Kuala Lumpur", "Hong Kong"],
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "AI Services",

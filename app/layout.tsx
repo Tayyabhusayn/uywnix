@@ -9,11 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.uywnix.com'),
   title: {
-    default: "UYWNIX - AI Automation Agency | Global Tech Solutions",
+    default: "UYWNIX - AI Automation Company | Global Tech Solutions",
     template: "%s | UYWNIX"
   },
-  description: "UYWNIX is a premier AI Automation Agency providing AI Sales Agents, AI Voice Employees, and Workflow Automation. Scaling businesses in Dubai, USA, India, and UK with ROI-driven AI solutions.",
-  keywords: "AI Automation Agency, AI Sales Agents, AI Voice Employees, Business Process Automation, Custom AI Solutions, Digital Transformation, AI Chatbots for Business, Dubai AI Agency, USA AI Automation, Real Estate AI Automation, AI for Legal Firms, Solar Industry AI, Automated Lead Qualification, 24/7 AI Customer Support, Enterprise AI Solutions",
+  description: "UYWNIX is a premier AI Automation Company providing AI Sales Agents, AI Voice Employees, and Workflow Automation. Serving businesses in London, New York, Dubai, Singapore, Toronto, Sydney, and 50+ cities worldwide with ROI-driven AI solutions.",
+  keywords: "AI Automation Company, AI Sales Agents, AI Voice Employees, Business Process Automation, Custom AI Solutions, Digital Transformation, AI Chatbots for Business, Dubai AI Company, USA AI Automation, UK AI Automation, AI Agency London, AI Automation New York, AI Automation Singapore, AI Automation Dubai, AI Automation Toronto, AI Automation Sydney, Real Estate AI Automation, AI for Legal Firms, Solar Industry AI, Automated Lead Qualification, 24/7 AI Customer Support, Enterprise AI Solutions, AI Automation Services Worldwide",
   authors: [{ name: "UYWNIX Team" }],
   creator: "UYWNIX",
   publisher: "UYWNIX",
@@ -78,15 +78,9 @@ export default function RootLayout({
               "name": "UYWNIX",
               "url": "https://uywnix.com",
               "logo": "https://uywnix.com/logo.png",
-              "description": "Global AI Automation Agency",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Dubai",
-                "addressCountry": "UAE"
-              },
+              "description": "Global AI Automation Company",
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "",
                 "contactType": "customer service",
                 "email": "contact@uywnix.com"
               },

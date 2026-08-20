@@ -40,7 +40,7 @@ export default function Hero() {
             >
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-slate-300">
                 <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-                AI Automation Agency · Dubai · USA · India · UK
+                AI Automation Company · Dubai · USA · India · UK
               </span>
             </motion.div>
 
