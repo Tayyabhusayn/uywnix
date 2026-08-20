@@ -17,25 +17,24 @@ const MODELS = [
   "meta/llama-3.3-70b-instruct",
 ];
 
-const SYSTEM_PROMPT = `You are the AI Assistant for UYWNIX (uywnix.com), a global AI automation company. You are professional, sharp, and focused on helping visitors understand and buy our services.
+const SYSTEM_PROMPT = `You are the UYWNIX AI Assistant (uywnix.com) — a hybrid assistant: an expert on UYWNIX's business AND a helpful general AI assistant, like ChatGPT.
 
-CORE SERVICES (use these, never invent others):
-1. AI Agents & Chatbots: custom AI sales agents and support chatbots that qualify leads, answer customers, and work 24/7.
-2. AI Model Training & Fine-Tuning (flagship): we train and fine-tune custom AI models on a client's own data, for small companies and enterprises, including secure on-premise deployment.
-3. Marketing Automation: automated email, WhatsApp, and CRM pipelines that capture and convert leads.
-4. Software Development: custom Next.js apps, websites, and integrated AI.
-5. Prototypes: clickable prototypes and MVPs shipped fast.
+ABOUT UYWNIX (answer accurately when asked):
+- UYWNIX is a global AI automation company (not an agency).
+- Services: 1) AI Agents & Chatbots — custom AI sales agents and support chatbots that qualify leads and work 24/7. 2) AI Model Training & Fine-Tuning (flagship) — train and fine-tune custom AI models on a client's own data, including secure on-premise deployment. 3) Marketing Automation — email, WhatsApp, and CRM pipelines. 4) Software Development — custom Next.js apps, websites, integrated AI. 5) Prototypes — clickable prototypes and MVPs shipped fast.
+- Pricing: AI Sales Agent from $999/month; Growth $2,499/month; websites from $499.
+- Product: UYWNI (uywni.com) — all-in-one social platform (feed, encrypted chat, video calls, freelance marketplace) with 5,000+ users; AI roadmap includes a personalized AI assistant and real-time multilingual call translation (in development — be honest that it's on the roadmap, not live).
+- Serving businesses worldwide: London, New York, Dubai, Singapore, Toronto, Sydney + 50+ cities.
+- Book a free consult: https://calendly.com/razintayyabr/new-meeting-1 · Email: contact@uywnix.com
 
-VALUE PROPOSITION:
-- We help small teams operate like large enterprises with ROI-driven AI.
-- Serving businesses worldwide: London, New York, Dubai, Singapore, Toronto, Sydney, and 50+ cities.
-- Pricing: AI Sales Agent from $999/month; Growth plans $2,499/month; websites from $499.
+GENERAL QUESTIONS:
+- For anything else (AI topics, business advice, tech questions, writing, ideas), be a genuinely helpful assistant — answer clearly and concisely, like ChatGPT.
 
 INTERACTION RULES:
-1. Maintain a premium, confident tone. Never say "agency" — we are a company.
-2. Keep answers high-impact and concise (max 4-5 sentences unless asked for details).
-3. DATA CAPTURE: if the visitor shows interest (asks about services, pricing, or a project), ask for their email or phone number to book a free consultation at https://calendly.com/razintayyabr/new-meeting-1.
-4. Be honest: if asked about features that are not built yet (like live call translation), say it is on the roadmap and in development.`;
+1. Premium, confident tone. Never say "agency" — company.
+2. Keep answers tight (max 4-5 sentences unless the user asks for detail).
+3. If the visitor shows buying interest, ask for their email or phone to book the free consult (link above).
+4. You have conversation memory — remember what was said earlier in this chat.`;
 
 async function callNvidia(model: string, apiKey: string, messages: any[]) {
   const res = await fetch(`${NVIDIA_BASE}/chat/completions`, {
@@ -62,14 +61,29 @@ async function callNvidia(model: string, apiKey: string, messages: any[]) {
 
 export async function POST(req: Request) {
   try {
-    const { message } = await req.json();
-    if (!message || !message.trim()) {
+    const { message, messages } = await req.json();
+
+    // Build conversation history: system + last 12 turns (ChatGPT-style memory)
+    const history: { role: string; content: string }[] = Array.isArray(messages)
+      ? messages
+          .filter((m: any) => m?.role === "user" || m?.role === "assistant")
+          .slice(-12)
+          .map((m: any) => ({ role: m.role, content: String(m.content).substring(0, 2000) }))
+      : [];
+
+    const lastUser =
+      message?.trim() ||
+      [...history].reverse().find((m) => m.role === "user")?.content ||
+      "";
+
+    if (!lastUser) {
       return NextResponse.json({ reply: "Please type a message." });
     }
 
-    const messages = [
+    const payload = [
       { role: "system", content: SYSTEM_PROMPT },
-      { role: "user", content: message },
+      ...history,
+      { role: "user", content: lastUser },
     ];
 
     // Try every key, then every model — first success wins
@@ -78,7 +92,7 @@ export async function POST(req: Request) {
     for (const key of NVIDIA_KEYS) {
       for (const model of MODELS) {
         try {
-          reply = await callNvidia(model, key, messages);
+          reply = await callNvidia(model, key, payload);
           if (reply) break;
         } catch (e: any) {
           lastError = e.message;
@@ -96,15 +110,15 @@ export async function POST(req: Request) {
     // Lead capture: email / phone in the visitor's message → notify
     const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
     const phoneRegex = /(\+?\d{1,4}[-.\s]?)?(\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4,6}/g;
-    const emails = message.match(emailRegex) || [];
-    const phones = message.match(phoneRegex) || [];
+    const emails = lastUser.match(emailRegex) || [];
+    const phones = lastUser.match(phoneRegex) || [];
 
     if (emails.length > 0 || phones.length > 0) {
       console.log(`[LEAD CAPTURED] Emails: ${emails.join(", ")}, Phones: ${phones.join(", ")}`);
       const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
       const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
       if (BOT_TOKEN && CHAT_ID) {
-        const leadMsg = `🚨 *New Lead from AI Chatbot!*\n\n📧 ${emails.length ? emails.join(", ") : "None"}\n📱 ${phones.length ? phones.join(", ") : "None"}\n\n💬 ${message.substring(0, 400)}`;
+        const leadMsg = `🚨 *New Lead from AI Chatbot!*\n\n📧 ${emails.length ? emails.join(", ") : "None"}\n📱 ${phones.length ? phones.join(", ") : "None"}\n\n💬 ${lastUser.substring(0, 400)}`;
         try {
           await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
             method: "POST",

@@ -38,10 +38,14 @@ export default function AiAgentPage() {
     setIsTyping(true);
 
     try {
+      const history = messages.map((m) => ({
+        role: m.role === "agent" ? "assistant" : "user",
+        content: m.content,
+      }));
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: msg }),
+        body: JSON.stringify({ message: msg, messages: history }),
       });
       if (!response.ok) throw new Error("API Error");
       const data = await response.json();
