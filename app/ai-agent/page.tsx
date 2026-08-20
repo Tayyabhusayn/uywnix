@@ -24,6 +24,10 @@ export default function AiAgentPage() {
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [siteName, setSiteName] = useState("");
+  const [siteDesc, setSiteDesc] = useState("");
+  const [genStatus, setGenStatus] = useState<"" | "busy" | "done" | "error">("");
+  const [siteHtml, setSiteHtml] = useState("");
 
   const handleSend = async (text?: string) => {
     const msg = (text ?? input).trim();
@@ -48,6 +52,37 @@ export default function AiAgentPage() {
     } finally {
       setIsTyping(false);
     }
+  };
+
+  const generateSite = async () => {
+    if (!siteName.trim()) return;
+    setGenStatus("busy");
+    try {
+      const r = await fetch("/api/generate-site", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ business: siteName, description: siteDesc }),
+      });
+      const d = await r.json();
+      if (d.ok && d.html) {
+        setSiteHtml(d.html);
+        setGenStatus("done");
+      } else {
+        setGenStatus("error");
+      }
+    } catch {
+      setGenStatus("error");
+    }
+  };
+
+  const downloadSite = () => {
+    const blob = new Blob([siteHtml], { type: "text/html" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${(siteName || "website").replace(/[^a-z0-9]+/gi, "-").toLowerCase()}.html`;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -145,6 +180,54 @@ export default function AiAgentPage() {
                 >
                   <ArrowUp className="w-5 h-5" />
                 </button>
+              </div>
+            </div>
+          </div>
+
+          {/* AI Website Builder */}
+          <div className="mt-8 bg-white/[0.04] border border-white/10 rounded-3xl shadow-2xl overflow-hidden">
+            <div className="px-6 py-4 border-b border-white/10 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <p className="font-bold text-sm text-white">Free AI Website Builder</p>
+                <p className="text-xs text-slate-400">Generate a complete single-file website in seconds — download it, host it anywhere.</p>
+              </div>
+            </div>
+            <div className="p-6 space-y-4">
+              <input
+                value={siteName}
+                onChange={(e) => setSiteName(e.target.value)}
+                placeholder="Business name (e.g. Al Noor Bakery)"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-400/50"
+              />
+              <textarea
+                value={siteDesc}
+                onChange={(e) => setSiteDesc(e.target.value)}
+                placeholder="What does the business do? (e.g. bakery in Dubai selling fresh bread and cakes)"
+                rows={2}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-400/50 resize-none"
+              />
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={generateSite}
+                  disabled={genStatus === "busy" || !siteName.trim()}
+                  className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:opacity-40 text-white text-sm font-bold transition shrink-0"
+                >
+                  {genStatus === "busy" ? "Generating..." : "Generate Website"}
+                </button>
+                {genStatus === "done" && (
+                  <button
+                    onClick={downloadSite}
+                    className="px-6 py-3 rounded-xl bg-white text-slate-900 hover:bg-slate-100 text-sm font-bold transition shrink-0"
+                  >
+                    Download .HTML
+                  </button>
+                )}
+                {genStatus === "error" && (
+                  <span className="text-xs text-red-400">Generation failed — try again.</span>
+                )}
               </div>
             </div>
           </div>
