@@ -55,7 +55,7 @@ export default function UywniProductPage() {
       </nav>
 
       <section className="py-24 container mx-auto px-4 text-center relative overflow-hidden">
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-violet-600/15 blur-[130px] rounded-full pointer-events-none" />
+        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-blue-600/15 blur-[130px] rounded-full pointer-events-none" />
         <div className="relative">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 border border-green-400/30 text-green-400 text-xs font-bold uppercase tracking-widest mb-6">
             ● Now Live on iOS & Android
@@ -91,9 +91,9 @@ export default function UywniProductPage() {
 
           <div className="max-w-md mx-auto bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl">
             <div className="aspect-[9/19] bg-slate-900 rounded-2xl flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-b from-violet-600/20 via-transparent to-black/60" />
+              <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 via-transparent to-black/60" />
               <div className="text-center p-6 relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-indigo-600 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg shadow-violet-500/30">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg shadow-blue-500/30">
                   <span className="text-white text-2xl font-black">U</span>
                 </div>
                 <h3 className="text-white font-bold text-xl mb-2">Welcome to UYWNI</h3>
@@ -126,9 +126,9 @@ export default function UywniProductPage() {
             {features.map((f) => (
               <div
                 key={f.title}
-                className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-violet-400/40 transition"
+                className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-400/40 transition"
               >
-                <div className="w-11 h-11 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 mb-4">
+                <div className="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4">
                   <f.icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{f.title}</h3>

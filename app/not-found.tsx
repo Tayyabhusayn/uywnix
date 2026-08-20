@@ -11,7 +11,7 @@ export default function NotFound() {
     <div className="min-h-screen bg-slate-50 flex items-center justify-center flex-col p-4 relative overflow-hidden">
       {/* Background blobs for visual interest */}
       <div className="absolute top-[-10%] right-[-10%] w-[400px] h-[400px] bg-blue-100/50 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-purple-100/50 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-blue-100/50 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="text-center relative z-10 max-w-lg">
         <div className="w-24 h-24 bg-white border border-slate-100 shadow-xl rounded-3xl mx-auto mb-8 flex items-center justify-center text-4xl animate-bounce">

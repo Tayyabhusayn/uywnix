@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const statuses = [
   { label: "AI Sales Engine", detail: "Optimizing conversions...", color: "bg-green-500" },
   { label: "Voice Processing", detail: "Latency <150ms", color: "bg-blue-500" },
-  { label: "Lead Qualification", detail: "Active in NYC Hub", color: "bg-purple-500" },
+  { label: "Lead Qualification", detail: "Active in NYC Hub", color: "bg-blue-500" },
   { label: "Secure Handshake", detail: "End-to-end active", color: "bg-amber-500" }
 ];
 

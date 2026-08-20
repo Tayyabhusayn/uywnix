@@ -45,8 +45,8 @@ const features = [
     title: "Customer Experience",
     desc: "Deploy AI support agents that resolve issues instantly, any time of day.",
     href: "/contact",
-    gradient: "from-purple-500 to-violet-500",
-    bg: "bg-gradient-to-br from-purple-500/10 to-violet-500/10"
+    gradient: "from-blue-500 to-blue-500",
+    bg: "bg-gradient-to-br from-blue-500/10 to-blue-500/10"
   },
   {
     icon: Wallet,
@@ -77,8 +77,8 @@ const features = [
     title: "Productivity",
     desc: "Personal AI assistants that handle the busy work so you can focus on what matters.",
     href: "/services",
-    gradient: "from-indigo-500 to-purple-500",
-    bg: "bg-gradient-to-br from-indigo-500/10 to-purple-500/10"
+    gradient: "from-indigo-500 to-blue-500",
+    bg: "bg-gradient-to-br from-indigo-500/10 to-blue-500/10"
   }
 ];
 
@@ -112,7 +112,7 @@ export default function FeatureGrid() {
       <div className="absolute inset-0 grid-bg-subtle opacity-40" />
       
       {/* Gradient orbs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-100/50 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-6 relative">
@@ -124,7 +124,7 @@ export default function FeatureGrid() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 text-slate-300 text-sm font-semibold mb-6"
           >
-            <Sparkles className="w-4 h-4 text-violet-500" />
+            <Sparkles className="w-4 h-4 text-blue-500" />
             Enterprise Solutions
           </motion.div>
           
@@ -164,7 +164,7 @@ export default function FeatureGrid() {
             <motion.div key={i} variants={item}>
               <Link 
                 href={feature.href} 
-                className="group relative block p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-violet-400/40 transition-all duration-500 h-full overflow-hidden"
+                className="group relative block p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-blue-400/40 transition-all duration-500 h-full overflow-hidden"
               >
                 {/* Hover gradient overlay */}
                 <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${feature.bg}`} />
@@ -177,7 +177,7 @@ export default function FeatureGrid() {
                   </div>
                   
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-violet-200 transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-200 transition-colors">
                     {feature.title}
                   </h3>
                   
@@ -207,7 +207,7 @@ export default function FeatureGrid() {
         >
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-slate-900 font-semibold hover:bg-slate-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-violet-500/20 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-slate-900 font-semibold hover:bg-slate-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-0.5"
           >
             Explore All Solutions
             <ArrowRight className="w-5 h-5" />

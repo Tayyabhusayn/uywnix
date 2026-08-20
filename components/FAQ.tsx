@@ -60,7 +60,7 @@ export default function FAQ() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-violet-300 uppercase tracking-widest mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-blue-300 uppercase tracking-widest mb-6">
             FAQ
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
@@ -82,7 +82,7 @@ export default function FAQ() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
                 className={`rounded-2xl border transition-colors ${
-                  isOpen ? "border-violet-400/40 bg-white/5" : "border-white/10 bg-white/[0.03] hover:border-white/20"
+                  isOpen ? "border-blue-400/40 bg-white/5" : "border-white/10 bg-white/[0.03] hover:border-white/20"
                 }`}
               >
                 <button
@@ -93,7 +93,7 @@ export default function FAQ() {
                   <h3 className="text-base md:text-lg font-bold text-white">{faq.q}</h3>
                   <ChevronDown
                     className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 text-violet-400" : ""
+                      isOpen ? "rotate-180 text-blue-400" : ""
                     }`}
                   />
                 </button>

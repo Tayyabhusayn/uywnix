@@ -12,7 +12,7 @@ const stats = [
 ];
 
 const workflow = [
-  { icon: Mail, label: "Lead capture", status: "1,240 today", color: "text-violet-400 bg-violet-500/10" },
+  { icon: Mail, label: "Lead capture", status: "1,240 today", color: "text-blue-400 bg-blue-500/10" },
   { icon: Bot, label: "AI qualification", status: "Active · 98%", color: "text-cyan-400 bg-cyan-500/10" },
   { icon: PhoneCall, label: "Follow-up calls", status: "86 booked", color: "text-emerald-400 bg-emerald-500/10" },
   { icon: TrendingUp, label: "Pipeline growth", status: "+34% this week", color: "text-amber-400 bg-amber-500/10" },
@@ -23,7 +23,7 @@ export default function Hero() {
     <section className="relative min-h-screen overflow-hidden bg-slate-950 flex items-center">
       {/* Ambient background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-25%] left-1/2 -translate-x-1/2 w-[900px] h-[520px] bg-violet-600/15 blur-[140px] rounded-full" />
+        <div className="absolute top-[-25%] left-1/2 -translate-x-1/2 w-[900px] h-[520px] bg-blue-600/15 blur-[140px] rounded-full" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[480px] bg-cyan-500/10 blur-[120px] rounded-full" />
         <div className="absolute inset-0 grid-bg-subtle opacity-20" />
       </div>
@@ -39,7 +39,7 @@ export default function Hero() {
               className="mb-8"
             >
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-slate-300">
-                <Sparkles className="w-3.5 h-3.5 text-violet-400" />
+                <Sparkles className="w-3.5 h-3.5 text-blue-400" />
                 AI Automation Agency · Dubai · USA · India · UK
               </span>
             </motion.div>
@@ -73,7 +73,7 @@ export default function Hero() {
             >
               <Link
                 href="/audit"
-                className="group inline-flex items-center justify-center gap-2 bg-white text-slate-900 px-8 py-3.5 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-violet-500/20 hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center gap-2 bg-white text-slate-900 px-8 py-3.5 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-0.5"
               >
                 Start Building
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -108,7 +108,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="relative hidden lg:block"
           >
-            <div className="absolute -inset-6 bg-gradient-to-br from-violet-600/20 to-cyan-500/10 blur-3xl rounded-full pointer-events-none" />
+            <div className="absolute -inset-6 bg-gradient-to-br from-blue-600/20 to-cyan-500/10 blur-3xl rounded-full pointer-events-none" />
 
             <div className="relative rounded-3xl bg-white/[0.04] border border-white/10 backdrop-blur-xl p-6 shadow-2xl">
               {/* Window header */}
@@ -140,7 +140,7 @@ export default function Hero() {
                       <p className="text-sm font-semibold text-white">{item.label}</p>
                       <div className="mt-1.5 h-1.5 rounded-full bg-white/10 overflow-hidden">
                         <motion.div
-                          className="h-full rounded-full bg-gradient-to-r from-violet-500 to-cyan-400"
+                          className="h-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-400"
                           initial={{ width: "20%" }}
                           animate={{ width: `${55 + i * 10}%` }}
                           transition={{ duration: 1, delay: 0.8 + i * 0.15 }}

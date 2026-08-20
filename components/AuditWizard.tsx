@@ -63,7 +63,7 @@ export default function AuditWizard() {
   };
 
   const inputCls =
-    "w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500 transition";
+    "w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition";
   const labelCls = "block text-xs font-bold text-slate-300 uppercase tracking-widest mb-2";
   const primaryBtn =
     "bg-white text-slate-900 px-8 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-slate-100 transition hover:shadow-lg transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed";
@@ -127,7 +127,7 @@ export default function AuditWizard() {
         </div>
         <div className="h-1 bg-white/10 rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-gradient-to-r from-violet-500 to-indigo-500"
+            className="h-full bg-gradient-to-r from-blue-500 to-indigo-500"
             initial={{ width: 0 }}
             animate={{ width: `${(step / 3) * 100}%` }}
             transition={{ duration: 0.5 }}
@@ -137,7 +137,7 @@ export default function AuditWizard() {
 
       <div className="bg-white/5 rounded-3xl border border-white/10 shadow-2xl p-8 md:p-12 relative overflow-hidden">
         {/* Background Blob */}
-        <div className="absolute top-[-20%] right-[-20%] w-[300px] h-[300px] bg-violet-600/20 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute top-[-20%] right-[-20%] w-[300px] h-[300px] bg-blue-600/20 rounded-full blur-[80px] pointer-events-none" />
 
         <AnimatePresence mode="wait">
           {step === 1 && (
@@ -199,7 +199,7 @@ export default function AuditWizard() {
               exit="exit"
               transition={{ duration: 0.3 }}
             >
-              <div className="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 text-purple-400">
+              <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-400">
                 <BarChart3 className="w-6 h-6" />
               </div>
               <h2 className="text-3xl font-bold text-white mb-2">Operational Bottlenecks</h2>
@@ -226,13 +226,13 @@ export default function AuditWizard() {
                       onClick={() => toggleBottleneck(item)}
                       className={`flex items-center gap-3 p-4 rounded-xl border text-left transition group ${
                         checked
-                          ? "border-violet-400/60 bg-violet-500/10"
-                          : "border-white/10 hover:border-violet-400/40 hover:bg-white/5"
+                          ? "border-blue-400/60 bg-blue-500/10"
+                          : "border-white/10 hover:border-blue-400/40 hover:bg-white/5"
                       }`}
                     >
                       <div
                         className={`w-5 h-5 rounded border flex items-center justify-center transition ${
-                          checked ? "bg-violet-500 border-violet-500" : "border-slate-500"
+                          checked ? "bg-blue-500 border-blue-500" : "border-slate-500"
                         }`}
                       >
                         {checked && <Check className="w-3.5 h-3.5 text-white" />}

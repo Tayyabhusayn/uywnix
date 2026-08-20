@@ -30,7 +30,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
           <Link href="/" className="inline-flex items-center gap-2">
             <span className="text-2xl font-black tracking-tight">UYWNIX</span>
-            <Sparkles className="w-4 h-4 text-violet-400" />
+            <Sparkles className="w-4 h-4 text-blue-400" />
           </Link>
           <p className="text-sm text-slate-400 max-w-sm">
             Websites, software, prototypes, and automation — one team, every build.
@@ -76,7 +76,7 @@ export default function Footer() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="absolute right-6 bottom-6 w-11 h-11 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white flex items-center justify-center shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 transition-all duration-300 hover:-translate-y-1"
+        className="absolute right-6 bottom-6 w-11 h-11 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 hover:-translate-y-1"
         aria-label="Back to top"
       >
         <ArrowUpRight className="w-5 h-5 rotate-[-45deg]" />

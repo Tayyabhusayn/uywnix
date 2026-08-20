@@ -64,9 +64,9 @@ export default function AiAgentPage() {
       </nav>
 
       <section className="py-12 md:py-20 container mx-auto px-4 relative overflow-hidden">
-        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-violet-600/15 blur-[130px] rounded-full pointer-events-none" />
+        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-600/15 blur-[130px] rounded-full pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center mb-14">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-400/30 text-violet-300 text-xs font-bold uppercase tracking-widest mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase tracking-widest mb-6">
             <Bot className="w-4 h-4" /> AI Business Agent
           </span>
           <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
@@ -81,7 +81,7 @@ export default function AiAgentPage() {
           {/* Chat window */}
           <div className="bg-white/[0.04] border border-white/10 rounded-3xl shadow-2xl overflow-hidden">
             <div className="px-6 py-4 border-b border-white/10 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
                 <Bot className="w-5 h-5 text-white" />
               </div>
               <div>
@@ -99,7 +99,7 @@ export default function AiAgentPage() {
                     className={`max-w-[85%] px-4 py-3 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap ${
                       m.role === "user"
                         ? "bg-white text-slate-900 rounded-br-md"
-                        : "bg-violet-500/10 border border-violet-400/20 text-slate-200 rounded-bl-md"
+                        : "bg-blue-500/10 border border-blue-400/20 text-slate-200 rounded-bl-md"
                     }`}
                   >
                     {m.content}
@@ -108,7 +108,7 @@ export default function AiAgentPage() {
               ))}
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="px-4 py-3 rounded-2xl bg-violet-500/10 border border-violet-400/20 rounded-bl-md text-sm text-slate-400">
+                  <div className="px-4 py-3 rounded-2xl bg-blue-500/10 border border-blue-400/20 rounded-bl-md text-sm text-slate-400">
                     <span className="inline-flex gap-1">
                       <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" />
                       <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:0.15s]" />
@@ -125,7 +125,7 @@ export default function AiAgentPage() {
                   <button
                     key={s}
                     onClick={() => handleSend(s)}
-                    className="shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300 hover:bg-violet-500/10 hover:border-violet-400/30 hover:text-white transition"
+                    className="shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300 hover:bg-blue-500/10 hover:border-blue-400/30 hover:text-white transition"
                   >
                     {s}
                   </button>
@@ -137,7 +137,7 @@ export default function AiAgentPage() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleSend()}
                   placeholder="Ask about automation..."
-                  className="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-violet-400/50"
+                  className="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-400/50"
                 />
                 <button
                   onClick={() => handleSend()}
@@ -163,8 +163,8 @@ export default function AiAgentPage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
             {capabilities.map((c) => (
-              <div key={c.title} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-violet-400/40 transition">
-                <div className="w-11 h-11 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 mb-4">
+              <div key={c.title} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-400/40 transition">
+                <div className="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4">
                   <c.icon className="w-5 h-5" />
                 </div>
                 <h3 className="font-bold text-white mb-2 text-sm">{c.title}</h3>

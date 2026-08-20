@@ -70,9 +70,9 @@ export default function PricingPage() {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {plans.map((plan, i) => (
-            <div key={i} className={`relative p-8 rounded-3xl bg-white/5 border ${plan.popular ? 'border-violet-400/40 shadow-2xl scale-105 z-10' : 'border-white/10 shadow-lg'} flex flex-col`}>
+            <div key={i} className={`relative p-8 rounded-3xl bg-white/5 border ${plan.popular ? 'border-blue-400/40 shadow-2xl scale-105 z-10' : 'border-white/10 shadow-lg'} flex flex-col`}>
               {plan.popular && (
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-violet-500 to-indigo-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
                   Most Popular
                 </div>
               )}

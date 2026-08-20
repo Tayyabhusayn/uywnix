@@ -7,7 +7,7 @@ import { Smartphone, ArrowRight } from "lucide-react";
 export default function ProductStrip() {
   return (
     <section className="relative py-20 bg-slate-950 border-t border-white/5 overflow-hidden">
-      <div className="absolute top-0 right-0 w-[500px] h-[300px] bg-violet-600/10 blur-[110px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[300px] bg-blue-600/10 blur-[110px] rounded-full pointer-events-none" />
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -17,11 +17,11 @@ export default function ProductStrip() {
           className="flex flex-col md:flex-row items-center justify-between gap-8 p-8 md:p-10 rounded-3xl bg-white/[0.04] border border-white/10"
         >
           <div className="flex items-center gap-6">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-violet-500/25 shrink-0">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/25 shrink-0">
               <Smartphone className="w-7 h-7 text-white" />
             </div>
             <div>
-              <span className="text-xs font-bold text-violet-300 uppercase tracking-widest">Our Product</span>
+              <span className="text-xs font-bold text-blue-300 uppercase tracking-widest">Our Product</span>
               <h2 className="text-2xl md:text-3xl font-black text-white mt-1">
                 UYWNI — one app for everything
               </h2>

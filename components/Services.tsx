@@ -41,7 +41,7 @@ export default function Services() {
   return (
     <section className="relative py-24 bg-slate-950 overflow-hidden">
       {/* Ambient glows */}
-      <div className="absolute -top-48 left-1/2 -translate-x-1/2 w-[760px] h-[420px] bg-violet-600/20 blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute -top-48 left-1/2 -translate-x-1/2 w-[760px] h-[420px] bg-blue-600/20 blur-[130px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[420px] h-[320px] bg-cyan-500/10 blur-[110px] rounded-full pointer-events-none" />
       <div className="absolute inset-0 grid-bg-subtle opacity-20 pointer-events-none" />
 
@@ -54,7 +54,7 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-violet-300 uppercase tracking-widest mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-blue-300 uppercase tracking-widest mb-6">
             What we build
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
@@ -76,12 +76,12 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -6 }}
-              className="group relative p-6 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-violet-400/40 transition-all duration-300 overflow-hidden"
+              className="group relative p-6 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-blue-400/40 transition-all duration-300 overflow-hidden"
             >
               {/* Hover glow */}
-              <div className="absolute -top-16 -right-16 w-40 h-40 bg-violet-500/0 group-hover:bg-violet-500/20 blur-3xl rounded-full transition-all duration-500" />
+              <div className="absolute -top-16 -right-16 w-40 h-40 bg-blue-500/0 group-hover:bg-blue-500/20 blur-3xl rounded-full transition-all duration-500" />
 
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center mb-5 shadow-lg shadow-violet-500/25">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-5 shadow-lg shadow-blue-500/25">
                 <service.icon className="w-6 h-6 text-white" />
               </div>
 
@@ -91,7 +91,7 @@ export default function Services() {
               <ul className="space-y-1.5 mb-5">
                 {service.features.map((f) => (
                   <li key={f} className="flex items-center gap-2 text-xs text-slate-300">
-                    <span className="w-1 h-1 rounded-full bg-violet-400 shrink-0" />
+                    <span className="w-1 h-1 rounded-full bg-blue-400 shrink-0" />
                     {f}
                   </li>
                 ))}
@@ -99,7 +99,7 @@ export default function Services() {
 
               <Link
                 href="/services"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-violet-300 hover:text-violet-200 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-300 hover:text-blue-200 transition-colors"
               >
                 Learn more <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>

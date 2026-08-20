@@ -23,7 +23,7 @@ export default async function AuditPage({
             Our AI engine will analyze your operational structure and identify high-value automation opportunities.
           </p>
           {goal && (
-            <p className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-400/30 text-sm text-violet-300">
+            <p className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-sm text-blue-300">
               🎯 Your goal: <span className="font-semibold text-white">{goal}</span>
             </p>
           )}

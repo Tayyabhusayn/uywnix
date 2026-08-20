@@ -87,7 +87,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
           <Link href="/newsroom" className="inline-flex items-center text-sm font-bold text-slate-400 hover:text-white mb-6 transition-colors group">
             <span className="mr-2 group-hover:-translate-x-1 transition-transform">←</span> Back to Newsroom
           </Link>
-          <div className="flex items-center gap-3 text-xs font-bold text-violet-400 uppercase tracking-widest mb-4">
+          <div className="flex items-center gap-3 text-xs font-bold text-blue-400 uppercase tracking-widest mb-4">
             <span>{post.category}</span>
             <span className="text-slate-600">•</span>
             <span className="text-slate-500">{post.date}</span>
@@ -97,7 +97,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
           <h1 className="text-3xl md:text-5xl font-black tracking-tight leading-tight text-white mb-8">{post.title}</h1>
         </div>
 
-        <div className="prose prose-lg prose-slate prose-invert max-w-none mb-20 prose-headings:font-bold prose-headings:tracking-tight prose-a:text-violet-400 prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl prose-img:shadow-lg prose-blockquote:border-violet-400">
+        <div className="prose prose-lg prose-slate prose-invert max-w-none mb-20 prose-headings:font-bold prose-headings:tracking-tight prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl prose-img:shadow-lg prose-blockquote:border-blue-400">
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
 

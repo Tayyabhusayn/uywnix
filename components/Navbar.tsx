@@ -49,13 +49,13 @@ export default function Navbar() {
                   UYWNIX
                 </span>
                 <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-500 rounded-full"
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3 }}
                 />
               </motion.div>
-              <Sparkles className="w-4 h-4 text-violet-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <Sparkles className="w-4 h-4 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -67,7 +67,7 @@ export default function Navbar() {
                   className="relative px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors group"
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full group-hover:w-full transition-all duration-300" />
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-500 rounded-full group-hover:w-full transition-all duration-300" />
                 </Link>
               ))}
             </div>
@@ -76,11 +76,11 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-3">
               <Link
                 href="/audit"
-                className="group relative inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-2.5 rounded-full text-sm font-semibold overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-violet-500/20"
+                className="group relative inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-2.5 rounded-full text-sm font-semibold overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
               >
                 <span className="relative z-10">Get Started</span>
-                <span className="relative z-10 text-xs px-2 py-0.5 rounded-full bg-violet-500 text-white">Free</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className="relative z-10 text-xs px-2 py-0.5 rounded-full bg-blue-500 text-white">Free</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
               </Link>
             </div>
 
@@ -117,7 +117,7 @@ export default function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className="text-4xl font-black text-white tracking-tight hover:text-violet-400 transition-colors"
+                      className="text-4xl font-black text-white tracking-tight hover:text-blue-400 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.label}
