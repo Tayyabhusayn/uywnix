@@ -25,3 +25,9 @@ Allow: /
 
 Sitemap: https://www.uywnix.com/sitemap.xml
 IndexNow: bfa4206f8df123cfffcefa1c2d6efe68
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Sogou web spider
+Allow: /
+
